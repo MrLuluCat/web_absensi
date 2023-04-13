@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\mahasiswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class mahasiswaController extends Controller
 {
@@ -11,9 +13,20 @@ class mahasiswaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $katakunci = $request->katakunci;
+        $jumlahBaris = 6;
+        if (strlen($katakunci)) {
+            $data = mahasiswa::where('nim', 'like', "%$katakunci%")
+                ->orWhere('nama', 'like', "%$katakunci%")
+                ->orWhere('jabatan', 'like', "%$katakunci%")
+                ->paginate($jumlahBaris);
+        } else {
+            $data = mahasiswa::orderBy('nim', 'asc')->paginate($jumlahBaris);
+        }
+       
+        return view('mahasiswa_crud.index')->with('data', $data);
     }
 
     /**
@@ -23,7 +36,14 @@ class mahasiswaController extends Controller
      */
     public function create()
     {
-        //
+        // $jabatanEnums = DB::select(DB::raw("SHOW COLUMNS FROM mahasiswa WHERE Field = 'jabatan'"))[0]->Type;
+        // preg_match('/^enum\((.*)\)$/', $jabatanEnums, $matches);
+        // $enumValues = array();
+        // foreach (explode(',', $matches[1]) as $value) {
+        //     $enumValues[] = trim($value, "'");
+        // }
+        // return view('mahasiswa_crud.create', compact('enumValues'));
+        return view('mahasiswa_crud.create');
     }
 
     /**
@@ -34,7 +54,27 @@ class mahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nim' => 'required|numeric|unique:mahasiswa,nim',
+            'nama' => 'required|regex:/^[a-zA-Z\s]+$/',
+            'fakultas' => 'required|regex:/^[a-zA-Z\s]+$/',
+            'jurusan' => 'required|regex:/^[a-zA-Z\s]+$/',
+            'no_telepon' => 'required|numeric',
+            'jenis_kelamin' => 'required',
+            'jabatan' => 'required'
+        ]);
+
+        mahasiswa::create([
+            'nim' => $request->nim,
+            'nama' => $request->nama,
+            'fakultas' => $request->fakultas,
+            'jurusan' => $request->jurusan,
+            'no_telepon' => $request->no_telepon,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'jabatan' => $request->jabatan
+        ]);
+
+        return redirect()->to('mahasiswa')->withSuccess('Data mahasiswa berhasil ditambahkan');
     }
 
     /**
@@ -56,7 +96,19 @@ class mahasiswaController extends Controller
      */
     public function edit($id)
     {
-        //
+        // $jabatanEnums = DB::select(DB::raw("SHOW COLUMNS FROM mahasiswa WHERE Field = 'jabatan'"))[0]->Type;
+        // preg_match('/^enum\((.*)\)$/', $jabatanEnums, $matches);
+        // $data = array();
+        // foreach (explode(',', $matches[1]) as $value) {
+        //     $data[] = trim($value, "'");
+        // }
+        
+        $data = mahasiswa::where('nim', $id)->first();
+        return view('mahasiswa_crud.edit')->with('data', $data);
+        // @dd($data);
+        // return view('mahasiswa_crud.edit', compact('data'));
+        
+        // return view('mahasiswa_crud.editCRUD', compact('enumValues'));
     }
 
     /**
@@ -68,7 +120,28 @@ class mahasiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            // 'nim' => 'required|unique:mahasiswa,nim',
+            'nama' => 'required',
+            'fakultas' => 'required',
+            'jurusan' => 'required',
+            'no_telepon' => 'required',
+            'jenis_kelamin' => 'required',
+            'jabatan' => 'required'
+        ]);
+
+        $data = [
+            // 'nim' => $request->nim,
+            'nama' => $request->nama,
+            'fakultas' => $request->fakultas,
+            'jurusan' => $request->jurusan,
+            'no_telepon' => $request->no_telepon,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'jabatan' => $request->jabatan
+        ];
+
+        mahasiswa::where('nim', $id)->update($data);
+        return redirect()->to('mahasiswa')->withSuccess('Data mahasiswa berhasil dirubah');
     }
 
     /**
@@ -79,6 +152,7 @@ class mahasiswaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        mahasiswa::where('nim', $id)->delete();
+        return redirect()->to('mahasiswa')->with('success', 'Berhasil Menghapus Data');
     }
 }

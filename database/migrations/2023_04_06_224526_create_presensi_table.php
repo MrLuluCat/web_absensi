@@ -15,10 +15,12 @@ return new class extends Migration
     {
         Schema::create('presensi', function (Blueprint $table) {
             $table->date('tanggal_presensi');
-            $table->string('nim');
+            $table->char('nim', 10);;
             $table->time('jam_masuk')->nullable();
             $table->time('jam_keluar')->nullable();
-            $table->primary(['tanggal_presensi','nim']);
+
+            $table->primary(['tanggal_presensi', 'nim']);
+
             $table->foreign('nim')->references('nim')->on('mahasiswa');
             $table->timestamps();
         });

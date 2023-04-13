@@ -14,13 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('mahasiswa', function (Blueprint $table) {
-            $table->string('nim')->primary();
+            $table->char('nim', 10)->primary();
             $table->string('nama');
             $table->string('fakultas');
             $table->string('jurusan');
             $table->string('no_telepon',20);
-            $table->enum('jenis_kelamin',['L','P']);
-            $table->enum('jabatan',['SPV','Asisten','Calas']);
+            $table->string('jenis_kelamin');
+            $table->string('jabatan');
         });
     }
 
@@ -32,5 +32,6 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('mahasiswa');
+        
     }
 };
