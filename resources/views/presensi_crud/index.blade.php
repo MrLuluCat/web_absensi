@@ -16,7 +16,7 @@
 
       <!-- TOMBOL TAMBAH DATA -->
       <div class="pb-3">
-        <a href='{{ url('mahasiswa/create') }}' class="btn btn-success">+ Tambah Data</a>
+        <a href='{{ url('presensi/create') }}' class="btn btn-success">+ Tambah Data</a>
       </div>
 
       <table class="table table-striped">
@@ -24,8 +24,10 @@
               <tr>
                   <th class="col-md-1">No</th>
                   <th class="col-md-2">NIM</th>
-                  <th class="col-md-4">Nama</th>
-                  <th class="col-md-2">Jabatan</th>
+                  <th class="col-md-2">Nama</th>
+                  <th class="col-md-2">Jam Masuk</th>
+                  <th class="col-md-2">Jam Keluar</th>
+                  <th class="col-md-1">Status</th>
                   <th class="col-md-2">Action</th>
               </tr>
           </thead>
@@ -35,24 +37,108 @@
               <tr>
                 <td>{{ $i }}</td>
                 <td>{{ $item->nim }}</td>
-                <td>{{ $item->nama }}</td>
-                <td>{{ $item->jabatan }}</td>
+                <td>{{ $item->mahasiswa->nama }}</td>
+                <td>{{ $item->jam_masuk }}</td>
+                <td>{{ $item->jam_keluar }}</td>
+                <td>{{ $item->jam_keluar }}</td>
                 <td>
-                    <a href='{{ url('mahasiswa/' .$item->nim. '/edit') }}' class="btn btn-warning btn-sm">Edit</a>
+
+                    <button type="submit" class="btn btn-primary btn-sm" name="submit" data-bs-toggle="modal" 
+                    data-bs-target="#viewModal{{ $item->nim }}">View</button>
+
+                    {{-- <a href='{{ url('presensi/{$item->tanggal_presensi}/edit/{$item->nim}') }}' class="btn btn-warning btn-sm">Edit</a> --}}
+                    {{-- <a href='{{ url("presensi/{$item->tanggal_presensi}/{$item->nim}/edit") }}' class="btn btn-warning btn-sm">Edit</a> --}}
+                    
+                    {{-- <form id="form-edit-presensi" method="POST" action="{{ route('presensi.edit') }}">
+                        @csrf
+                        <input type="hidden" name="idPresensi" value="{{ $data->tanggal_presensi }}">
+                        <input type="hidden" name="idNIM" value="{{ $data->nim }}">
+                        <button type="submit" class="d-inline btn btn-warning btn-sm">{{ $data->tanggal_presensi }} {{ $data->nim }}</button>
+                    </form> --}}
+                    <a href="{{ route('presensi.edit', ['idPresensi' => $item->tanggal_presensi, 'idNIM' => $item->nim]) }}" class="btn btn-warning btn-sm">Edit</a>
 
                       <!-- Button trigger modal -->
-                    <button type="submit" class="btn btn-danger btn-sm" name="submit" data-bs-toggle="modal" 
-                    data-bs-target="#exampleModal{{ $item->nim }}">
-                      Delete
-                    </button>
+                    <button type="submit" class="btn btn-danger btn-sm d-inline" name="submit" data-bs-toggle="modal" 
+                    data-bs-target="#deleteModal{{ $item->nim }}">Delete</button>
                     
                   </td>
               </tr>
               <?php $i++ ?>
               @endforeach
-            <!-- Modal -->
+            
+              {{-- Modal Select --}}
+                   @foreach ($data as $item)
+                    <div class="modal fade" id="viewModal{{ $item->nim }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Lihat Data Mahasiswa</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+
+                          <div class="modal-body">
+
+                                  <div class="mx-2">
+
+                                    <div class="mb-3">
+                                      <label for="nim" class="form-label">NIM</label>
+                                      <input id="nim" type="text" class="form-control" name="nim" 
+                                      value="{{ $item->nim }}" autofocus readonly>
+                                    </div>
+
+                                    <div class="mb-3">
+                                      <label for="nama" class="form-label">Nama</label>
+                                      <input id="nama" type="text" class="form-control" name="nama" 
+                                      value="{{ $item->nama }}" autofocus readonly>
+                                    </div>
+
+                                    <div class="mb-3">
+                                      <label for="fakultas" class="form-label">Fakultas</label>
+                                      <input id="fakultas" type="text" class="form-control" name="fakultas" 
+                                      value="{{ $item->fakultas }}" autofocus readonly>
+                                    </div>
+
+                                    <div class="mb-3">
+                                      <label for="jurusan" class="form-label">Jurusan</label>
+                                      <input id="jurusan" type="text" class="form-control" name="jurusan" 
+                                      value="{{ $item->jurusan }}" autofocus readonly>
+                                    </div>
+
+                                    <div class="mb-3">
+                                      <label for="no_telepon" class="form-label">No. Telepon</label>
+                                      <input id="no_telepon" type="text" class="form-control" name="no_telepon" 
+                                      value="{{ $item->no_telepon }}" autofocus readonly>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                      <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+                                          <input id="jenis_kelamin" type="text" class="form-control" name="jenis_kelamin" 
+                                      value="{{ $item->jenis_kelamin }}" autofocus readonly>
+                                    </div>
+
+                                    <div class="mb-3">
+                                      <label for="jabatan" class="form-label">Jabatan</label>
+                                        <input id="jabatan" type="text" class="form-control" name="jabatan" 
+                                      value="{{ $item->jabatan }}" autofocus readonly>
+                                    </div>
+
+                                  </div>  
+                                </div>
+
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              @endforeach
+
+                    
+            <!-- Modal Delete -->
             @foreach ($data as $item)
-                    <div class="modal fade" id="exampleModal{{ $item->nim }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="deleteModal{{ $item->nim }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -77,6 +163,8 @@
               @endforeach
           </tbody>
       </table>
+
+             
       {{ $data->withQueryString()->links() }}
 
 

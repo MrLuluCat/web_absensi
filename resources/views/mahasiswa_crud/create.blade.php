@@ -102,26 +102,10 @@
                                 </span>
                             @enderror
                         </div>        
-                        
                     </div>
-                    <div class="form-group row">
-                    <div class="form-check">
-                            <input class="form-check-input" type="radio" name="status" id="izin" value="izin">
-                            <label class="form-check-label" for="izin">
-                                Izin
-                            </label>
-                            </div>
-
-                            <div class="form-check">
-                            <input class="form-check-input" type="radio" name="status" id="sakit" value="sakit">
-                            <label class="form-check-label" for="sakit">
-                                Sakit
-                            </label>
-                            </div>
+                  
                     </div>
-                        </div>
 
-                    
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
                             <button type="submit" class="btn btn-primary">

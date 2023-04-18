@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('no_telepon',20);
             $table->string('jenis_kelamin');
             $table->string('jabatan');
+            $table->timestamps();
         });
     }
 
