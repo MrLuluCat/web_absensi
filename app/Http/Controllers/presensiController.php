@@ -17,16 +17,28 @@ class presensiController extends Controller
      */
     public function index(Request $request)
     {
+
+        $tanggal = $request->tanggal_presensi ? Carbon::parse($request->input('tanggal_presensi')) : Carbon::today('Asia/Jakarta')->format('Y-m-d');
+        // $data = presensi::where('tanggal_presensi', $tanggal)->get();
+        // return view('dashboard', compact('data'));
+
+        // $tanggal = Carbon::parse('2023-04-22')->format('Y-m-d');
+        $data = Presensi::where('tanggal_presensi', $tanggal)->get();
+
         $katakunci = $request->katakunci;
         $jumlahBaris = 6;
         if (strlen($katakunci)) {
             $data = presensi::where('nim', 'like', "%$katakunci%")
             ->orWhere('nama', 'like', "%$katakunci%")
             ->orWhere('jabatan', 'like', "%$katakunci%")
+            ->where('tanggal_presensi', $tanggal)
             ->paginate($jumlahBaris);
         } else {
-            $data = presensi::orderBy('jam_masuk', 'asc')->paginate($jumlahBaris);
+            $data = presensi::where('tanggal_presensi', $tanggal)
+            ->orderBy('jam_masuk', 'asc')
+            ->paginate($jumlahBaris);
         }
+
 
         return view('presensi_crud.index')->with('data', $data);
     }
@@ -54,23 +66,37 @@ class presensiController extends Controller
     {
         $request->validate([
             'tanggal_presensi' => 'unique:presensi',
-            'nim' => 'required|unique:presensi',
+            'nim' => 'required',
             // 'status' => 'required',
             'jam_masuk' => 'nullable|date_format:H:i',
             'jam_keluar' => 'nullable|date_format:H:i'
         ]);
 
-        $presensi = new presensi([
-            'tanggal_presensi' => Carbon::now('Asia/Jakarta')->format('Y-m-d'),
-            'nim' => $request->nim,
-            // 'status' => $request->status,
-            'jam_masuk' => $request->jam_masuk,
-            'jam_keluar' => $request->jam_keluar
-        ]);
-        $presensi->save();
+        // $data = presensi::where('nim', $request->nim)
+        //                     ->where('tanggal_presensi', Carbon::now('Asia/Jakarta')->format('Y-m-d'))
+        //                     ->first();
 
-        return redirect()->to('presensi_crud.index')
-        ->with('success', 'Presensi berhasil ditambahkan.');
+        // if ($data) {
+        //     if ($data->jam_keluar) {
+        //         return redirect()->back()->withErrors(['Anda sudah melakukan absen keluar hari ini']);
+        //     }
+
+        //     $data->jam_keluar = Carbon::now('Asia/Jakarta');
+        //     $data->save();
+
+        //     return redirect()->back()->withSuccess('Absen keluar berhasil');
+        // }
+
+        presensi::create([
+            'nim' => $request->nim,
+            'tanggal_presensi' => Carbon::today('Asia/Jakarta')->format('Y-m-d'),
+            'jam_masuk' => $request->jam_masuk,
+            'status' => 'Hadir'
+        ]);
+
+        // return redirect()->back()->withSuccess('Absen masuk berhasil');
+
+        return redirect()->to('presensi')->with('success', 'Presensi berhasil ditambahkan.');
     }
 
     /**
@@ -90,18 +116,18 @@ class presensiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $idPresensi, $idNIM)
+    public function edit(Request $request, $idPresensi, $nim)
     {
         $data = DB::table('presensi')
                             ->where('tanggal_presensi', $idPresensi)
-                            ->where('nim', $idNIM)
+                            ->where('nim', $nim)
                             ->first();
         // $data = 
         // $idPresensi = $request->input('idPresensi');
-        // $idNIM = $request->input('idNIM');
+        // $nim = $request->input('nim');
 
         // return redirect()->route('presensi_crud.edit',
-        //  ['idPresensi' => $idPresensi, 'idNIM' => $idNIM]);
+        //  ['idPresensi' => $idPresensi, 'nim' => $nim]);
         return view('presensi_crud.edit')->with('data', $data);
     }
 
@@ -114,42 +140,40 @@ class presensiController extends Controller
      */
     public function update(Request $request, $idPresensi, $idNIM)
     {
-        $data = DB::table('presensi')
-                    ->where('tanggal_presensi', $idPresensi)
-                    ->where('nim', $idNIM)
-                    ->first();
+        $request->validate([
+            // 'idabsensi' => 'unique',
+            'jam_masuk' => 'nullable',
+            'jam_keluar' => 'nullable|date_format:H:i',
+        ]);
 
-        if ($data) {
-            if ($data->jam_keluar) {
+        $presensi = presensi::where('nim', $request->nim)
+        ->where('tanggal_presensi', $request->tanggal_presensi)
+        // ->where('id', $id)
+        ->first();
+
+        if ($presensi) {
+            if (!$presensi->jam_keluar) {
                 return redirect()->back()->withErrors(['Anda sudah melakukan absen keluar hari ini']);
             }
+            // $presensi->jam_keluar = Carbon::now('Asia/Jakarta')->format('H:i');
+            // $presensi->save();
 
-            $data->jam_keluar;  
-            $data->save();
-
-            return redirect()->back()->withSuccess('Absen keluar berhasil');
+            // return redirect()->back()->withSuccess('Absen keluar berhasil');
         }
 
-        $data = [
-                'jam_masuk' => $request->jam_masuk,
-                'jam_keluar' => $request->jam_keluar,
-            ];
+        $presensi = [
+            'jam_masuk' => $request->jam_masuk,
+            'jam_keluar' => $request->jam_keluar,
+        ];
 
-        // presensi::where('id', $id)->update($data2);
-        presensi::where('tanggal_presensi', 'nim', $idPresensi, $idNIM)
-                    ->update($data);
-        return redirect()->to('presensi');
-        // $presensi = presensi::findOrFail($id)([
-        //     'tanggal_presensi' => Carbon::now('Asia/Jakarta')->format('Y-m-d'),
-        //     'nim' => $request->nim,
-        //     'status' => $request->status,
-        //     'jam_masuk' => $request->jam_masuk,
-        //     'jam_keluar' => $request->jam_keluar
-        // ]);
-        // $presensi->save();
+        // return redirect()->back()->withSuccess('Absen keluar berhasil');
+        presensi::where('tanggal_presensi', $idPresensi)
+            ->where('nim', $idNIM)
+            ->update($presensi);
+        // @dd($presensi);
+        return redirect()->to('presensi')->withSuccess('Absen keluar berhasil');;
+        
 
-        // return redirect()->to('presensi_crud.index')
-        // ->with('success', 'Presensi Keluar Berhasil.');
     }
 
     /**
@@ -158,8 +182,16 @@ class presensiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($idPresensi, $nim)
     {
-        //
+        $presensi = presensi::where('tanggal_presensi', $idPresensi)
+            ->where('nim', $nim)
+            ->first();
+
+        if ($presensi) {
+            $presensi->delete();
+        }
+
+        return redirect()->route('presensi.index')->with('success', 'Presensi has been deleted successfully');
     }
 }

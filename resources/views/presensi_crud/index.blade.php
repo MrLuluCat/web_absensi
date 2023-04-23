@@ -24,11 +24,12 @@
               <tr>
                   <th class="col-md-1">No</th>
                   <th class="col-md-2">NIM</th>
+                  <th class="col-md-2">Tanggal Presensi</th>
                   <th class="col-md-2">Nama</th>
                   <th class="col-md-2">Jam Masuk</th>
                   <th class="col-md-2">Jam Keluar</th>
                   <th class="col-md-1">Status</th>
-                  <th class="col-md-2">Action</th>
+                  <th class="col-md-1">Action</th>
               </tr>
           </thead>
           <tbody>
@@ -37,14 +38,15 @@
               <tr>
                 <td>{{ $i }}</td>
                 <td>{{ $item->nim }}</td>
+                <td>{{ $item->tanggal_presensi }}</td>
                 <td>{{ $item->mahasiswa->nama }}</td>
                 <td>{{ $item->jam_masuk }}</td>
                 <td>{{ $item->jam_keluar }}</td>
-                <td>{{ $item->jam_keluar }}</td>
+                <td>{{ $item->status }}</td>
                 <td>
 
-                    <button type="submit" class="btn btn-primary btn-sm" name="submit" data-bs-toggle="modal" 
-                    data-bs-target="#viewModal{{ $item->nim }}">View</button>
+                    {{-- <button type="submit" class="btn btn-primary btn-sm d-inline" name="submit" data-bs-toggle="modal" 
+                    data-bs-target="#viewModal{{ $item->nim }}">View</button> --}}
 
                     {{-- <a href='{{ url('presensi/{$item->tanggal_presensi}/edit/{$item->nim}') }}' class="btn btn-warning btn-sm">Edit</a> --}}
                     {{-- <a href='{{ url("presensi/{$item->tanggal_presensi}/{$item->nim}/edit") }}' class="btn btn-warning btn-sm">Edit</a> --}}
@@ -55,18 +57,18 @@
                         <input type="hidden" name="idNIM" value="{{ $data->nim }}">
                         <button type="submit" class="d-inline btn btn-warning btn-sm">{{ $data->tanggal_presensi }} {{ $data->nim }}</button>
                     </form> --}}
-                    <a href="{{ route('presensi.edit', ['idPresensi' => $item->tanggal_presensi, 'idNIM' => $item->nim]) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{{ route('presensi.edit', ['idPresensi' => $item->tanggal_presensi, 'idNIM' => $item->nim]) }}" class="btn btn-warning btn-sm d-inline">Edit</a>
 
                       <!-- Button trigger modal -->
                     <button type="submit" class="btn btn-danger btn-sm d-inline" name="submit" data-bs-toggle="modal" 
-                    data-bs-target="#deleteModal{{ $item->nim }}">Delete</button>
+                    data-bs-target="#deleteModal{{ $item->tanggal_presensi }}{{ $item->nim }}">Delete</button>
                     
                   </td>
               </tr>
               <?php $i++ ?>
               @endforeach
             
-              {{-- Modal Select --}}
+                  {{-- Modal View Select --}}
                    @foreach ($data as $item)
                     <div class="modal fade" id="viewModal{{ $item->nim }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
@@ -138,7 +140,7 @@
                     
             <!-- Modal Delete -->
             @foreach ($data as $item)
-                    <div class="modal fade" id="deleteModal{{ $item->nim }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="deleteModal{{ $item->tanggal_presensi }}{{ $item->nim }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -151,10 +153,10 @@
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             {{-- <form class="d-inline" action="{{ route('presensi.destroy', ['presensi' => $item->id]) }}" method="POST"> --}}
-                            <form class="d-inline" action="{{ url('mahasiswa/'.$item->nim) }}" method="POST">
+                            <form class="d-inline" action="{{ route('presensi.destroy', [$item->tanggal_presensi, $item->nim]) }}" method="POST">
                               @csrf
                               @method('DELETE')
-                              <button type="submit" class="btn btn-danger d-inline">{{ $item->nim }}</button>
+                              <button type="submit" class="btn btn-danger">{{ $item->nim }}</button>
                             </form>
                           </div>
                         </div>

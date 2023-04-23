@@ -14,14 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('presensi', function (Blueprint $table) {
+            $table->id();
             $table->date('tanggal_presensi');
-            $table->char('nim', 10);;
+            $table->char('IDnim', 10);;
             $table->time('jam_masuk')->nullable();
             $table->time('jam_keluar')->nullable();
-
-            $table->primary(['tanggal_presensi', 'nim']);
-
-            $table->foreign('nim')->references('nim')->on('mahasiswa');
+            $table->string('status');
+            // $table->primary(['tanggal_presensi', 'nim']);
+            $table->foreign('IDnim')->references('nim')->on('mahasiswa');
             $table->timestamps();
         });
     }

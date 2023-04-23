@@ -26,11 +26,10 @@ Route::resource('presensi', presensiController::class);
 // Route::post('presensi/edit', [PresensiController::class, 'edit']);
 Route::get('presensi/edit/{idPresensi}/{idNIM}', [PresensiController::class, 'edit'])->name('presensi.edit');
 
-Route::put('/presensi/{id}', [PresensiController::class, 'update'])->name('presensi.update');
+Route::put('/presensi/{idPresensi}/{idNIM}', [PresensiController::class, 'update'])->name('presensi.update');
 
-// Route::get('/mahasiswa', function () {
-//     return view('mahasiswa_crud.index');
-// });
+Route::delete('/presensi/{idPresensi}/{idNIM}', [PresensiController::class, 'destroy'])->name('presensi.destroy');
+
 
 // To about
 Route::get('about', function () {

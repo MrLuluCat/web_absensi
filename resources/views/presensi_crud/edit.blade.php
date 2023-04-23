@@ -8,9 +8,9 @@
                     <div class="card-header">{{ __('Tambah Data Mahasiswa') }}</div>
                     <div class="card-body">
                         
-            <form action='{{ route('presensi.store') }}' method='post'>
-            @csrf   
-
+            <form action='{{ route('presensi.update', [$data->tanggal_presensi, $data->nim]) }}' method='post'>
+            @csrf
+            @method('PUT')
             <div class="my-3 p-3 bg-body rounded shadow-sm">
 
             <a href=" {{ url('presensi') }} " class="btn btn-secondary mb-3">Kembali</a>
@@ -50,8 +50,10 @@
                 </label>
             </div> --}}
             <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-    </div>
+
+            </div>
+            </div>
+            </form>
             </div>
         </div>
     </div>
