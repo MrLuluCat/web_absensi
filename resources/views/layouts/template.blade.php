@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
       .ikigai {
         background-color: #2c3439;
@@ -42,7 +43,10 @@
                   <a class="nav-link active text-white" aria-current="page" href="{{ url('/mahasiswa')}}">Data Asisten</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active text-white" aria-current="page" href="{{ url('/presensi')}}">Presensi</a>
+                  <a class="nav-link active text-white" aria-current="page" href="{{ url('/presensi')}}">Presensi Asisten</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active text-white" aria-current="page" href="{{ url('/presensi')}}">Presensi Calas</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link active text-white" aria-current="page" href="{{ url('/about') }}">About</a>
@@ -58,7 +62,7 @@
     
     <main class="container">
 
-        @include('layouts.massage')
+        @include('component.massage')
 
         @yield('konten')
 

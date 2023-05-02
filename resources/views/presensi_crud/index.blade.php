@@ -24,12 +24,11 @@
               <tr>
                   <th class="col-md-1">No</th>
                   <th class="col-md-2">NIM</th>
-                  <th class="col-md-2">Tanggal Presensi</th>
                   <th class="col-md-2">Nama</th>
                   <th class="col-md-2">Jam Masuk</th>
                   <th class="col-md-2">Jam Keluar</th>
                   <th class="col-md-1">Status</th>
-                  <th class="col-md-1">Action</th>
+                  <th class="col-md-2">Action</th>
               </tr>
           </thead>
           <tbody>
@@ -38,7 +37,6 @@
               <tr>
                 <td>{{ $i }}</td>
                 <td>{{ $item->nim }}</td>
-                <td>{{ $item->tanggal_presensi }}</td>
                 <td>{{ $item->mahasiswa->nama }}</td>
                 <td>{{ $item->jam_masuk }}</td>
                 <td>{{ $item->jam_keluar }}</td>
@@ -70,7 +68,7 @@
             
                   {{-- Modal View Select --}}
                    @foreach ($data as $item)
-                    <div class="modal fade" id="viewModal{{ $item->nim }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal animate__bounceIn" id="viewModal{{ $item->nim }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -140,7 +138,7 @@
                     
             <!-- Modal Delete -->
             @foreach ($data as $item)
-                    <div class="modal fade" id="deleteModal{{ $item->tanggal_presensi }}{{ $item->nim }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal animate__bounceIn" id="deleteModal{{ $item->tanggal_presensi }}{{ $item->nim }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -151,7 +149,7 @@
                             <p>Apakah Anda Yakin Untuk Menghapus Entry Data Ini?</p>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary animate__bounceOutDown" data-bs-dismiss="modal">Close</button>
                             {{-- <form class="d-inline" action="{{ route('presensi.destroy', ['presensi' => $item->id]) }}" method="POST"> --}}
                             <form class="d-inline" action="{{ route('presensi.destroy', [$item->tanggal_presensi, $item->nim]) }}" method="POST">
                               @csrf

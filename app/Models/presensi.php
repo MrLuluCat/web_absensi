@@ -13,7 +13,6 @@ class presensi extends Model
     protected $fillable = ['tanggal_presensi', 'nim', 'jam_masuk', 'jam_keluar', 'status'];
     // protected $primaryKey = ('nim', 'tanggal_presensi');
     // protected $primaryKey = ['tanggal_presensi', 'nim'];
-    // public $incrementing = false;
     // protected $table->primary(array('tanggal_presensi', 'nim'));
 
     public function mahasiswa()
