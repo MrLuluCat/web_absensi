@@ -8,7 +8,7 @@
   <link rel="icon" href="../assets/img/logo1.jpg" type="image/x-icon" />
 
   <!-- Fonts and icons -->
-  <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+  <script src="../assets/js/plugin/webfont/webfont.min.js"></script>
   <script>
     WebFont.load({
       google: {
@@ -16,7 +16,7 @@
       },
       custom: {
         "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"],
-        urls: ['assets/css/fonts.min.css']
+        urls: ['../assets/css/fonts.min.css']
       },
       active: function() {
         sessionStorage.fonts = true;
@@ -25,28 +25,23 @@
   </script>
 
   <!-- CSS Files -->
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/atlantis.min.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/atlantis.min.css">
   <style>
     .display-4 {
       margin-top: 20px;
     }
   </style>
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link rel="stylesheet" href="assets/css/demo.css">
+  <link rel="stylesheet" href="../assets/css/demo.css">
 </head>
 
 <body>
-
-
-
   <div class="wrapper">
-
     <div class="main-header">
-
       <!-- Logo Header -->
       <div class="logo-header" data-background-color="blue">
-        <a href="/dashboard" class="logo">
+        <a href="dashboard.php" class="logo">
           <!-- <img src="../assets/img/mts.png" alt="navbar brand" class="navbar-brand" width="40"> -->
           <b class="text-white">Website Presensi</b>
         </a>
@@ -64,7 +59,6 @@
       </div>
       <!-- End Logo Header -->
 
-                                       <!-- nav bar -->
       <!-- Navbar Header -->
       <nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
         <div class="container-fluid">
@@ -78,11 +72,10 @@
           </ul>
         </div>
       </nav>
+
+      <!-- End Navbar -->
     </div>
-    <!-- End Navbar -->
-
-    
-
+    <!-- nav bar -->
     <!-- side bar -->
     <div class="sidebar sidebar-style-2">
       <div class="sidebar-wrapper scrollbar scrollbar-inner">
@@ -98,7 +91,7 @@
               <span class="sidebar-mini-icon">
                 <i class="fa fa-ellipsis-h"></i>
               </span>
-              <h4 class="text-section">Menu</h4>
+              <h4 class="text-section">Menu Utama</h4>
             </li>
             <li class="nav-item">
               <a data-toggle="collapse" href="#siswa">
@@ -109,15 +102,16 @@
               <div class="collapse" id="siswa">
                 <ul class="nav nav-collapse">
                   <li>
-                    <a href="/presensi_calas">
-                      <span class="sub-item">Calas</span>
+                    <a href="#">
+                      <span class="sub-item">Calas </span>
                     </a>
                   </li>
                   <li>
-                    <a href="/presensi_asisten">
-                      <span class="sub-item">Asisten</span>
+                    <a href="#">
+                      <span class="sub-item">Asisten </span>
                     </a>
                   </li>
+
                 </ul>
               </div>
             </li>
@@ -130,7 +124,7 @@
               <div class="collapse" id="about">
                 <ul class="nav nav-collapse">
                   <li>
-                    <a href="/about">
+                    <a href="about.php">
                       <span class="sub-item">Tentang Kami </span>
                     </a>
                   </li>
@@ -143,7 +137,7 @@
               </div>
             </li>
             <li class="nav-item active mt-3">
-              <a href="#" class="collapsed">
+              <a href="admin/index.php" class="collapsed">
                 <i class="fas fa-arrow-alt-circle-right"></i>
                 <p>Login</p>
               </a>
@@ -152,62 +146,5 @@
         </div>
       </div>
     </div>
-
-    <div class="main-panel">
-
-      <div class="content">
-        
-        @include('component.massage')
-
-        @yield('konten')
-
-      </div>
-  
-
-  </div>
-
-</div> 
-
-  <footer class="container-fluid bg-light py-3">
-    <div class="row">
-      <div class="col-md-12">
-        <p class="text-center">© 2023 by Kelompok 3</p>
-      </div>
-    </div>
-  </footer>
-
-<script src="assets/js/core/jquery.3.2.1.min.js"></script>
-<script src="assets/js/core/popper.min.js"></script>
-<script src="assets/js/core/bootstrap.min.js"></script>
-<script>
-var today = new Date();
-var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-var date = today.toLocaleDateString('en-US', options);
-document.getElementById('todayDate').innerHTML = date;
-</script>
-
-<!-- jQuery UI -->
-<script src="assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
-<script src="assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
-
-<!-- jQuery Scrollbar -->
-<script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-
-
-<!-- Datatables -->
-<script src="assets/js/plugin/datatables/datatables.min.js"></script>
-
-
-
-<!-- Sweet Alert -->
-<script src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
-
-<!-- Atlantis JS -->
-<script src="assets/js/atlantis.min.js"></script>
-
-<!-- Atlantis DEMO methods, don't include it in your project! -->
-<script src="assets/js/setting-demo.js"></script>
-</body>
- 
-</html>
+    
  

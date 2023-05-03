@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\mahasiswaController;
-use App\Http\Controllers\presensiController;
-use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\presensiAsistenController;
+use App\Http\Controllers\mahasiswaController;
+use App\Http\Controllers\presensiCalasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,20 +22,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('layouts/dashboard');
+});
+
 // mahasiswaController
 Route::resource('mahasiswa', mahasiswaController::class);
 
-// presensiController
-Route::resource('presensi', presensiController::class);
-Route::get('/presensi/edit/{idPresensi}/{idNIM}', [PresensiController::class, 'edit'])->name('presensi.edit');
-Route::put('/presensi/{idPresensi}/{idNIM}', [PresensiController::class, 'update'])->name('presensi.update');
-Route::delete('/presensi/{idPresensi}/{idNIM}', [PresensiController::class, 'destroy'])->name('presensi.destroy');
-
-// presensiCalasController
+// presensiAsistenController
 // Route::resource('presensi', presensiController::class);
 // Route::get('/presensi/edit/{idPresensi}/{idNIM}', [PresensiController::class, 'edit'])->name('presensi.edit');
 // Route::put('/presensi/{idPresensi}/{idNIM}', [PresensiController::class, 'update'])->name('presensi.update');
 // Route::delete('/presensi/{idPresensi}/{idNIM}', [PresensiController::class, 'destroy'])->name('presensi.destroy');
+
+// presensiCalasController
+Route::resource('presensi_calas', presensiCalasController::class);
+Route::get('/presensi_calas/edit/{idPresensi}/{idNIM}', [presensiCalasController::class, 'edit'])->name('presensi_calas.edit');
+Route::put('/presensi_calas/{idPresensi}/{idNIM}', [presensiCalasController::class, 'update'])->name('presensi_calas.update');
+Route::delete('/presensi_calas/{idPresensi}/{idNIM}', [presensiCalasController::class, 'destroy'])->name('presensi_calas.destroy');
 
 // Session
 route::get('/session',[SessionController::class, 'index']);
@@ -42,6 +47,6 @@ route::post('/session/login',[SessionController::class, 'login']);
 
 
 // about
-Route::get('about', function () {
-    return view('component/about');
+Route::get('/about', function () {
+    return view('layouts/about');
 });
