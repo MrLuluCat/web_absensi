@@ -30,10 +30,10 @@ Route::get('/dashboard', function () {
 Route::resource('mahasiswa', mahasiswaController::class);
 
 // presensiAsistenController
-// Route::resource('presensi', presensiController::class);
-// Route::get('/presensi/edit/{idPresensi}/{idNIM}', [PresensiController::class, 'edit'])->name('presensi.edit');
-// Route::put('/presensi/{idPresensi}/{idNIM}', [PresensiController::class, 'update'])->name('presensi.update');
-// Route::delete('/presensi/{idPresensi}/{idNIM}', [PresensiController::class, 'destroy'])->name('presensi.destroy');
+Route::resource('presensi_asisten', presensiAsistenController::class);
+Route::get('/presensi_asisten/edit/{idPresensi}/{idNIM}', [presensiAsistenController::class, 'edit'])->name('presensi_asisten.edit');
+Route::put('/presensi_asisten/{idPresensi}/{idNIM}', [presensiAsistenController::class, 'update'])->name('presensi_asisten.update');
+Route::delete('/presensi_asisten/{idPresensi}/{idNIM}', [presensiAsistenController::class, 'destroy'])->name('presensi_asisten.destroy');
 
 // presensiCalasController
 Route::resource('presensi_calas', presensiCalasController::class);

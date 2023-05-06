@@ -6,7 +6,7 @@
       <!-- FORM PENCARIAN -->
       @csrf
       <div class="pb-4">
-          <div class="container-xl d-flex justify-content-center m-2 pb-2 fs-4">Tambah Asisten / Calas</div>
+          <div class="container-xl d-flex justify-content-center m-2 pb-2 fs-4">Tambah Asisten</div>
         <form class="d-flex" action="{{ url('mahasiswa') }}" method="get">
             <input class="form-control me-1" type="search" name="katakunci" value="{{ Request::get('katakunci') }}" 
             placeholder="Cari Nama / NIM" aria-label="Search">
@@ -16,7 +16,7 @@
 
       <!-- TOMBOL TAMBAH DATA -->
       <div class="pb-3">
-        <a href='{{ url('presensi/create') }}' class="btn btn-success">+ Tambah Data</a>
+        <a href='{{ url('presensi_asisten/create') }}' class="btn btn-success">+ Tambah Data</a>
       </div>
 
       <table class="table table-striped">
@@ -55,12 +55,18 @@
                         <input type="hidden" name="idNIM" value="{{ $data->nim }}">
                         <button type="submit" class="d-inline btn btn-warning btn-sm">{{ $data->tanggal_presensi }} {{ $data->nim }}</button>
                     </form> --}}
-                    <a href="{{ route('presensi.edit', ['idPresensi' => $item->tanggal_presensi, 'idNIM' => $item->nim]) }}" class="btn btn-warning btn-sm d-inline">Edit</a>
+                    <a href="{{ route('presensi_asisten.edit', ['idPresensi' => $item->tanggal_presensi, 'idNIM' => $item->nim]) }}" class="btn btn-warning btn-sm d-inline">Edit</a>
 
                       <!-- Button trigger modal -->
-                    <button type="submit" class="btn btn-danger btn-sm d-inline" name="submit" data-bs-toggle="modal" 
-                    data-bs-target="#deleteModal{{ $item->tanggal_presensi }}{{ $item->nim }}">Delete</button>
-                    
+
+                      <form class="d-inline" action="{{ route('presensi_asisten.destroy', [$item->tanggal_presensi, $item->nim]) }}" method="POST">
+                              @csrf
+                              @method('DELETE')
+                              <button type="submit" class="btn btn-danger btn-sm d-inline">{{ $item->nim }}</button>
+                      </form>
+                    {{-- <button type="submit" class="btn btn-danger btn-sm d-inline" name="submit" data-bs-toggle="modal" 
+                    data-bs-target="#deleteModal{{ $item->tanggal_presensi }}{{ $item->nim }}">(( $item->nim ))</button>
+                     --}}
                   </td>
               </tr>
               <?php $i++ ?>
@@ -151,7 +157,7 @@
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary animate__bounceOutDown" data-bs-dismiss="modal">Close</button>
                             {{-- <form class="d-inline" action="{{ route('presensi.destroy', ['presensi' => $item->id]) }}" method="POST"> --}}
-                            <form class="d-inline" action="{{ route('presensi.destroy', [$item->tanggal_presensi, $item->nim]) }}" method="POST">
+                            <form class="d-inline" action="{{ route('presensi_asisten.destroy', [$item->tanggal_presensi, $item->nim]) }}" method="POST">
                               @csrf
                               @method('DELETE')
                               <button type="submit" class="btn btn-danger">{{ $item->nim }}</button>

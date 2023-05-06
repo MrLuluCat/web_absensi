@@ -5,10 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Website Absensi</title>
-  <link rel="icon" href="../assets/img/logo1.jpg" type="image/x-icon" />
+  <link rel="icon" href="{{ asset('assets/img/logo_labict2.png') }}" type="image/logo_labict2" />
 
   <!-- Fonts and icons -->
-  <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+  <script src="{{ asset('assets/js/plugin/webfont/webfont.min.js') }}"></script>
   <script>
     WebFont.load({
       google: {
@@ -25,15 +25,15 @@
   </script>
 
   <!-- CSS Files -->
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/atlantis.min.css">
+  <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/atlantis.min.css')}}">
   <style>
     .display-4 {
       margin-top: 20px;
     }
   </style>
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link rel="stylesheet" href="assets/css/demo.css">
+  <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}">
 </head>
 
 <body>
@@ -46,7 +46,7 @@
 
       <!-- Logo Header -->
       <div class="logo-header" data-background-color="blue">
-        <a href="/dashboard" class="logo">
+        <a href="{{ url('dashboard') }}" class="logo">
           <!-- <img src="../assets/img/mts.png" alt="navbar brand" class="navbar-brand" width="40"> -->
           <b class="text-white">Website Presensi</b>
         </a>
@@ -85,42 +85,50 @@
 
     <!-- side bar -->
     <div class="sidebar sidebar-style-2">
+
       <div class="sidebar-wrapper scrollbar scrollbar-inner">
+
         <div class="sidebar-content">
           <ul class="nav nav-primary">
+
             <li class="nav-item active">
               <a href="dashboard" class="collapsed">
                 <i class="fas fa-home"></i>
                 <p>Dashboard</p>
               </a>
             </li>
+
             <li class="nav-section">
               <span class="sidebar-mini-icon">
                 <i class="fa fa-ellipsis-h"></i>
               </span>
-              <h4 class="text-section">Menu</h4>
+              <h4 class="text-section">Main Menu</h4>
             </li>
+
             <li class="nav-item">
-              <a data-toggle="collapse" href="#siswa">
+              <a data-toggle="collapse" href="#presensi">
                 <i class="fas fa-user-friends"></i>
-                <p>Presensi</p>
+                  <p>Presensi</p>
                 <span class="caret"></span>
               </a>
-              <div class="collapse" id="siswa">
+
+              <div class="collapse" id="presensi">
                 <ul class="nav nav-collapse">
                   <li>
-                    <a href="/presensi_calas">
+                    <a href="{{ url('presensi_calas') }}">
                       <span class="sub-item">Calas</span>
                     </a>
                   </li>
                   <li>
-                    <a href="/presensi_asisten">
+                    <a href="{{ url('presensi_asisten') }}">
                       <span class="sub-item">Asisten</span>
                     </a>
                   </li>
                 </ul>
               </div>
+
             </li>
+
             <li class="nav-item">
               <a data-toggle="collapse" href="#about">
                 <i class="fas fa-user-friends"></i>
@@ -150,6 +158,7 @@
             </li>
           </ul>
         </div>
+
       </div>
     </div>
 
@@ -162,7 +171,6 @@
         @yield('konten')
 
       </div>
-  
 
   </div>
 
@@ -176,9 +184,9 @@
     </div>
   </footer>
 
-<script src="assets/js/core/jquery.3.2.1.min.js"></script>
-<script src="assets/js/core/popper.min.js"></script>
-<script src="assets/js/core/bootstrap.min.js"></script>
+<script src="{{ asset('assets/js/core/jquery.3.2.1.min.js') }}"></script>
+<script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
+<script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
 <script>
 var today = new Date();
 var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -187,26 +195,24 @@ document.getElementById('todayDate').innerHTML = date;
 </script>
 
 <!-- jQuery UI -->
-<script src="assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
-<script src="assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+<script src="{{ asset('assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js') }}"></script>
+<script src="{{ asset('assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js') }}"></script>
 
 <!-- jQuery Scrollbar -->
-<script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-
+<script src="{{ asset('assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js') }}"></script>
 
 <!-- Datatables -->
-<script src="assets/js/plugin/datatables/datatables.min.js"></script>
-
-
+<script src="{{ asset('assets/js/plugin/datatables/datatables.min.js') }}"></script>
 
 <!-- Sweet Alert -->
-<script src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+<script src="{{ asset('assets/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
 
 <!-- Atlantis JS -->
-<script src="assets/js/atlantis.min.js"></script>
+<script src="{{ asset('assets/js/atlantis.min.js') }}"></script>
 
 <!-- Atlantis DEMO methods, don't include it in your project! -->
-<script src="assets/js/setting-demo.js"></script>
+<script src="{{ asset('assets/js/setting-demo.js') }}"></script>
+
 </body>
  
 </html>

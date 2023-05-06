@@ -25,12 +25,20 @@ class presensiAsistenController extends Controller
         $katakunci = $request->katakunci;
         $jumlahBaris = 6;
         if (strlen($katakunci)) {
-            $data = presensi::where('nim', 'like', "%$katakunci%")
-                ->orWhere('nama', 'like', "%$katakunci%")
-                ->orWhere('jabatan', 'like', "%$katakunci%")
+            $data = presensi::join('mahasiswa', 'presensi.nim', '=', 'mahasiswa.nim')
+            ->where('tanggal_presensi', $tanggal)
+            ->where(function ($query) use ($katakunci) {
+                $query->where('presensi.nim', 'like', "%$katakunci%")
+                ->orWhere('mahasiswa.nama', 'like', "%$katakunci%");
+            })
+                ->orWhere('status', 'like', "%$katakunci%")
                 ->paginate($jumlahBaris);
         } else {
-            $data = presensi::where('tanggal_presensi', $tanggal)
+            $data =
+            presensi::join('mahasiswa', 'presensi.nim', '=', 'mahasiswa.nim')
+            ->where('mahasiswa.jabatan', '=', 'SPV')
+                ->orWhere('mahasiswa.jabatan', '=', 'Asisten')
+                ->where('tanggal_presensi', $tanggal)
                 ->orderBy('jam_masuk', 'asc')
                 ->paginate($jumlahBaris);
         }
@@ -49,7 +57,7 @@ class presensiAsistenController extends Controller
         // $jabatan = 'Calas';
         $categories = DB::table('mahasiswa')
             ->where('jabatan', 'SPV')
-            ->where('jabatan', 'Asisten')
+            ->orWhere('jabatan', 'Asisten')
             ->get();
 
         return view('presensiAsisten.create', compact('categories'));
@@ -89,7 +97,7 @@ class presensiAsistenController extends Controller
             'status' => $status
         ]);
 
-        return redirect()->to('presensi_calas')->with('success', 'Presensi berhasil ditambahkan.');
+        return redirect()->to('presensi_asisten')->with('success', 'Presensi berhasil ditambahkan.');
     }
 
     /**

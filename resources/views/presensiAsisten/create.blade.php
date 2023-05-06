@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Tambah Data Mahasiswa') }}</div>
                     <div class="card-body">
                         
-            <form action='{{ route('presensi.store') }}' method='post'>
+            <form action='{{ route('presensi_asisten.store') }}' method='post'>
             @csrf   
 
             <div class="my-3 p-3 bg-body rounded shadow-sm">

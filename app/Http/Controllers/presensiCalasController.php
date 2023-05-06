@@ -25,12 +25,19 @@ class presensiCalasController extends Controller
         $katakunci = $request->katakunci;
         $jumlahBaris = 6;
         if (strlen($katakunci)) {
-            $data = presensi::where('nim', 'like', "%$katakunci%")
-                ->orWhere('nama', 'like', "%$katakunci%")
-                ->orWhere('jabatan', 'like', "%$katakunci%")
+            $data = presensi::join('mahasiswa', 'presensi.nim', '=', 'mahasiswa.nim')
+            ->where('tanggal_presensi', $tanggal)
+            ->where(function ($query) use ($katakunci) {
+                $query->where('presensi.nim', 'like', "%$katakunci%")
+                ->orWhere('mahasiswa.nama', 'like', "%$katakunci%");
+            })
+                ->orWhere('status', 'like', "%$katakunci%")
                 ->paginate($jumlahBaris);
         } else {
-            $data = presensi::where('tanggal_presensi', $tanggal)
+            $data =
+            presensi::join('mahasiswa', 'presensi.nim', '=', 'mahasiswa.nim')
+            ->where('mahasiswa.jabatan', '=', 'Calas')
+                ->where('tanggal_presensi', $tanggal)
                 ->orderBy('jam_masuk', 'asc')
                 ->paginate($jumlahBaris);
         }

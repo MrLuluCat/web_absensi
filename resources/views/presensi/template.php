@@ -5,10 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Website Absensi</title>
-  <link rel="icon" href="../assets/img/logo1.jpg" type="image/x-icon" />
+  <link rel="icon" href="assets/img/logo1.jpg" type="image/x-icon" />
 
   <!-- Fonts and icons -->
-  <script src="../assets/js/plugin/webfont/webfont.min.js"></script>
+  <script src="assets/js/plugin/webfont/webfont.min.js"></script>
   <script>
     WebFont.load({
       google: {
@@ -16,7 +16,7 @@
       },
       custom: {
         "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"],
-        urls: ['../assets/css/fonts.min.css']
+        urls: ['assets/css/fonts.min.css']
       },
       active: function() {
         sessionStorage.fonts = true;
@@ -25,15 +25,15 @@
   </script>
 
   <!-- CSS Files -->
-  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../assets/css/atlantis.min.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/atlantis.min.css">
   <style>
     .display-4 {
       margin-top: 20px;
     }
   </style>
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link rel="stylesheet" href="../assets/css/demo.css">
+  <link rel="stylesheet" href="assets/css/demo.css">
 </head>
 
 <body>
