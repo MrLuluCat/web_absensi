@@ -92,7 +92,7 @@
           <ul class="nav nav-primary">
 
             <li class="nav-item active">
-              <a href="dashboard" class="collapsed">
+              <a href="{{ url('dashboard') }}" class="collapsed">
                 <i class="fas fa-home"></i>
                 <p>Dashboard</p>
               </a>
@@ -151,11 +151,19 @@
               </div>
             </li>
             <li class="nav-item active mt-3">
-              <a href="#" class="collapsed">
+              <a href="{{ url('/session') }}" class="collapsed">
                 <i class="fas fa-arrow-alt-circle-right"></i>
                 <p>Login</p>
               </a>
             </li>
+
+            {{-- <li class="nav-item active mt-3">
+              <a href="{{ url('/session/logout') }}" class="collapsed">
+                <i class="fas fa-arrow-alt-circle-left"></i>
+                <p>Logout</p>
+              </a>
+            </li> --}}
+
           </ul>
         </div>
 
@@ -176,13 +184,13 @@
 
 </div> 
 
-  <footer class="container-fluid bg-light py-3">
-    <div class="row">
-      <div class="col-md-12">
-        <p class="text-center">© 2023 by Kelompok 3</p>
-      </div>
+<footer class="container-fluid bg-light py-3">
+  <div class="row">
+    <div class="col-md-12">
+      <p class="text-center">© 2023 by Kelompok 3</p>
     </div>
-  </footer>
+  </div>
+</footer>
 
 <script src="{{ asset('assets/js/core/jquery.3.2.1.min.js') }}"></script>
 <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>

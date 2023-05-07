@@ -1,16 +1,14 @@
-<?php
-include 'template.php';
-?>
+@extends('admin.templateAdmin')
+<!-- START DATA -->
+@section('konten')
 <!-- End Sidebar -->
-
-
 			<div class="row mt-2">
 				<div class="col-md-6">
 					<div class="card full-height">
 						<div class="card-body">
 							<div class="card-title">
 								<center>
-									<img src="../assets/img/logo1.jpg" width="100">
+									<img src="{{ asset('assets/img/logo1.jpg') }}" width="100">
 									<br>
 									<b>LAB ICT UBL</b>
 								</center>
@@ -213,7 +211,4 @@ include 'template.php';
 									</div>
 								</div>
 							</div>
-							<!-- end modal pengaturan akun -->
-							<?php
-							include 'footer.php';
-							?>
+@endsection

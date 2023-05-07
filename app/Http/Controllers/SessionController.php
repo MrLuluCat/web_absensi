@@ -31,9 +31,17 @@ class SessionController extends Controller
         ];
 
         if(Auth::attempt($infoLogin)){
-            return redirect('mahasiswa')->with('success', 'Berhasil Login');
+            return redirect('/dashboard-admin')->with('success', 'Berhasil Login');
         } else {
             return redirect('session')->withErrors('Username & Password Yang Dimasukkan Salah');    
         }
+
+        
+    }
+
+    function logout()
+    {
+        Auth::logout();
+        return redirect('/dashboard')->with('success', 'Berhasil Logout');
     }
 }

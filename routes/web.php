@@ -26,6 +26,10 @@ Route::get('/dashboard', function () {
     return view('layouts/dashboard');
 });
 
+Route::get('/dashboard-admin', function () {
+    return view('admin/dashboard');
+});
+
 // mahasiswaController
 Route::resource('mahasiswa', mahasiswaController::class);
 
@@ -44,6 +48,7 @@ Route::delete('/presensi_calas/{idPresensi}/{idNIM}', [presensiCalasController::
 // Session
 route::get('/session',[SessionController::class, 'index']);
 route::post('/session/login',[SessionController::class, 'login']);
+route::get('/session/logout',[SessionController::class, 'logout']);
 
 
 // about
