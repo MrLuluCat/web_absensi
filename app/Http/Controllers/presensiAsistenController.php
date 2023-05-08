@@ -187,6 +187,6 @@ class presensiAsistenController extends Controller
             $presensi->delete();
         }
 
-        return redirect()->route('presensiCalas.index')->with('success', 'Presensi Berhasil Dihapus');
+        return redirect()->to('presensi_asisten')->with('success', 'Presensi Berhasil Dihapus');
     }
 }

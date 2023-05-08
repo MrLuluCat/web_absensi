@@ -49,6 +49,9 @@ Route::delete('/presensi_calas/{idPresensi}/{idNIM}', [presensiCalasController::
 route::get('/session',[SessionController::class, 'index']);
 route::post('/session/login',[SessionController::class, 'login']);
 route::get('/session/logout',[SessionController::class, 'logout']);
+// sessionRegisterUsers
+route::get('/session/register', [SessionController::class, 'register']);
+route::post('/session/create', [SessionController::class, 'create']);
 
 
 // about

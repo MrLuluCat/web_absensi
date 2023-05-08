@@ -183,16 +183,16 @@ class presensiCalasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($idPresensi, $nim)
+    public function destroy($idPresensi, $idNIM)
     {
         $presensi = presensi::where('tanggal_presensi', $idPresensi)
-            ->where('nim', $nim)
+            ->where('nim', $idNIM)
             ->first();
 
         if ($presensi) {
             $presensi->delete();
         }
-
-        return redirect()->route('presensiCalas.index')->with('success', 'Presensi Berhasil Dihapus');
+        // @dd($presensi);
+        return redirect()->to('presensi_calas')->with('success', 'Presensi Berhasil Dihapus');
     }
 }

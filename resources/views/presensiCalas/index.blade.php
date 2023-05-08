@@ -1,4 +1,8 @@
-@extends('layouts.template')
+@if(Auth::check() && Auth::user()->isAdmin())
+    @extends('admin.templateAdmin')
+@else
+    @extends('layouts.template')
+@endif
 <!-- START DATA -->
 @section('konten')
 <div class="my-3 p-3 bg-body rounded shadow-sm">
@@ -69,25 +73,21 @@
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary animate__bounceOutDown" data-dismiss="modal">Close</button>
                             {{-- <form class="d-inline" action="{{ route('presensi.destroy', ['presensi' => $item->id]) }}" method="POST"> --}}
-                            <form class="d-inline" action="{{ route('presensi_calas.destroy', [$item->tanggal_presensi, $item->nim]) }}" method="POST">
+                            <form action="{{ route('presensi_calas.destroy', [$item->tanggal_presensi, $item->nim]) }}" method="POST">
                               @csrf
                               @method('DELETE')
                               <button type="submit" class="btn btn-danger">{{ $item->nim }}</button>
                             </form>
                           </div>
-                        </div>
                       </div>
                     </div>
+                  </div>
               @endforeach
           </tbody>
       </table>
-
              
       {{ $data->withQueryString()->links() }}
 
-
-      
-     
 </div>
 <!-- AKHIR DATA -->
 @endsection

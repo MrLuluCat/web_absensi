@@ -64,6 +64,8 @@
                               @method('DELETE')
                               <button type="submit" class="btn btn-danger btn-sm d-inline">{{ $item->nim }}</button>
                       </form>
+                      <button type="submit" class="btn btn-danger btn-sm d-inline" name="submit" data-toggle="modal" 
+                    data-target="#deleteModal{{ $item->tanggal_presensi }}{{ $item->nim }}">Delete</button>
                     {{-- <button type="submit" class="btn btn-danger btn-sm d-inline" name="submit" data-bs-toggle="modal" 
                     data-bs-target="#deleteModal{{ $item->tanggal_presensi }}{{ $item->nim }}">(( $item->nim ))</button>
                      --}}
@@ -144,7 +146,7 @@
                     
             <!-- Modal Delete -->
             @foreach ($data as $item)
-                    <div class="modal animate__bounceIn" id="deleteModal{{ $item->tanggal_presensi }}{{ $item->nim }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                   <div class="modal fade" id="deleteModal{{ $item->tanggal_presensi }}{{ $item->nim }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">

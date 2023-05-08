@@ -146,20 +146,20 @@
                     </li>
 
                     <li class="nav-item">
-                        <a data-toggle="collapse" href="#siswa">
+                        <a data-toggle="collapse" href="#presensi">
                             <i class="fas fa-user-friends"></i>
                             <p>Presensi</p>
                             <span class="caret"></span>
                         </a>
-                        <div class="collapse" id="siswa">
+                        <div class="collapse" id="presensi">
                             <ul class="nav nav-collapse">
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ url('presensi_calas') }}">
                                         <span class="sub-item">Calas</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ url('presensi_asisten') }}">
                                         <span class="sub-item">Asisten</span>
                                     </a>
                                 </li>
