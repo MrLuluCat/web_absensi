@@ -1,10 +1,11 @@
-@if(Auth::check() && Auth::user()->isAdmin())
+{{-- @if(Auth::check() && Auth::user()->isAdmin()) --}}
     @extends('admin.templateAdmin')
-@else
-    @extends('layouts.template')
-@endif
+{{-- @else
+    {{-- @extends('layouts.template') --}}
+{{-- @endif --}} 
 <!-- START DATA -->
 @section('konten')
+
 <div class="my-3 p-3 bg-body rounded shadow-sm">
      
       <!-- FORM PENCARIAN -->
@@ -89,6 +90,8 @@
       {{ $data->withQueryString()->links() }}
 
 </div>
+
+
 <!-- AKHIR DATA -->
 @endsection
 

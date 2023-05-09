@@ -1,20 +1,63 @@
 @extends('layouts.template')
+<!-- START DATA -->
 @section('konten')
+{{-- <h1>Web Absen</h1> --}}
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Kelompok 3</h1>
+        <p class="lead">
+            Kami memiliki tujuan yang sama yaitu mencapai hasil terbaik dalam pembuatan web absensi ini .
+        </p>
+        <hr class="my-4" />
+    </div>
+</div>
+
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
-            <div class="mt-5">
-                <img class="d-flex justify-content-center" src="{{ asset('images\logo_labict2.png') }}" alt="logo.labict2.png" width='400px'>  
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 >Tentang Kami<br><br></h2>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <h4>Nabil Abdul Salam Fachrudin</h4>
+                                <p>Sebagai Backend.</p>
+                            </div>
+                            <div class="col-md-5">
+                                <h4>Mohamad Rafli Maulana</h4>
+                                <p>Sebagai Frontend.</p>
+                            </div>
+                            <div class="col-md-5">
+                                <h4>Aris Setiabudi</h4>
+                                <p>Sebagai Frontend.</p>
+                            </div>
+                            <div class="col-md-7">
+                                <h4>Gita Amanda Hutabarat</h4>
+                                <p>Sebagai Perancang LRS.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-6 d-flex justify-content-center mt-5 pt-5">
-            <div class="text-justify fs-4" style=" color: aliceblue;" > 
-                <br>
-                <p>Web ini dibuat untuk memudahkan presensi di LAB ICT Budi Luhur dengan tampilan simpel dan mudah dimengerti pengguna.
-                Kami akan terus mengembangkan web ini agar dapat lebih efisien dan lebih baik lagi. saran anda sangat diperlukan, 
-                Terima kasih telah menggunakan layanan kami! </p>
+
+            <div class="col-md-7">
+                <div class="card mb-1">
+                    <div class="card-body mb-3 align-self-center">
+                        <h2 >Dokumentasi Pengerjaan <br><br></h2>
+                        <section>
+                            
+                            <figure>
+                                <img class="col-md-5 " src="assets/img/logo2.jpg" alt="Foto dokumentasi pengerjaan">
+                                <figcaption>Foto dokumentasi pengerjaan</figcaption>
+                            </figure>
+                        </section>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 @endsection

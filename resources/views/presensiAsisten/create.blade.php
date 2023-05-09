@@ -17,7 +17,7 @@
 
             <div class="form-group">
                 <label for="nim">NIM</label>
-                <select class="form-select" aria-label="Default select example" value="nim" name="nim" id="nim">
+                <select class="custom-select" aria-label="Default select example" value="nim" name="nim" id="nim">
                     @foreach($categories as $category)
                         <option value="{{ $category->nim }}">{{ $category->nama }} - {{ $category->nim }} - {{ $category->jabatan }}</option>
                     @endforeach

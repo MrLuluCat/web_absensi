@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card mt-4">
-                    <div class="card-header">{{ __('Tambah Data Mahasiswa') }}</div>
+                    <div class="card-header">{{ __('Edit Data Mahasiswa') }}</div>
                     <div class="card-body">
                         
             <form action='{{ route('presensi_calas.update', [$data->tanggal_presensi, $data->nim]) }}' method='post'>
@@ -31,24 +31,6 @@
                 <input type="time" name="jam_keluar" id="jam_keluar" value="{{ \Carbon\Carbon::now('Asia/Jakarta')->format('H:i') }}" class="form-control">
             </div>
 
-            {{-- <div class="form-check mb-3">
-                <input class="form-check-input" type="radio" name="status" id="status">
-                <label class="form-check-label" for="status">
-                    masuk
-                </label>
-            </div>
-            <div class="form-check mb-3">
-                <input class="form-check-input" type="radio" name="status" id="status">
-                <label class="form-check-label" for="status">
-                    izin
-                </label>
-            </div>
-            <div class="form-check mb-3">
-                <input class="form-check-input" type="radio" name="status" id="status">
-                <label class="form-check-label" for="status">
-                    sakit
-                </label>
-            </div> --}}
             <button type="submit" class="btn btn-primary">Submit</button>
 
             </div>

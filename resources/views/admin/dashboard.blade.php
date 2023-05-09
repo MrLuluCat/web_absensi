@@ -1,6 +1,6 @@
 @extends('admin.templateAdmin')
 <!-- START DATA -->
-@section('konten')
+@section('kontenDashboard')
 <!-- End Sidebar -->
 			<div class="row mt-2">
 				<div class="col-md-6">

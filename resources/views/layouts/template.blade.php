@@ -81,7 +81,6 @@
     </div>
     <!-- End Navbar -->
 
-    
 
     <!-- side bar -->
     <div class="sidebar sidebar-style-2">
@@ -172,25 +171,43 @@
 
     <div class="main-panel">
 
-      <div class="content">
-        
+     <div class="content">
+
+        {{-- @include('component.massage') --}}
+
+        @yield('kontenDashboard')
+
+        <div class="page-inner">
         @include('component.massage')
 
         @yield('konten')
+        </div>
 
-      </div>
+    </div>
 
   </div>
 
 </div> 
 
-<footer class="container-fluid bg-light py-3">
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2023 by Kelompok 3:
+    <a href="{{ url('/dashboard') }}"> Web Absensi LAB ICT 2023</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+{{-- <footer class="container-fluid bg-light py-3">
   <div class="row">
     <div class="col-md-12">
       <p class="text-center">© 2023 by Kelompok 3</p>
     </div>
   </div>
-</footer>
+</footer> --}}
 
 <script src="{{ asset('assets/js/core/jquery.3.2.1.min.js') }}"></script>
 <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>

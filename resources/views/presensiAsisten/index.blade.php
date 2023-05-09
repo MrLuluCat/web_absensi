@@ -43,32 +43,12 @@
                 <td>{{ $item->status }}</td>
                 <td>
 
-                    {{-- <button type="submit" class="btn btn-primary btn-sm d-inline" name="submit" data-bs-toggle="modal" 
-                    data-bs-target="#viewModal{{ $item->nim }}">View</button> --}}
-
-                    {{-- <a href='{{ url('presensi/{$item->tanggal_presensi}/edit/{$item->nim}') }}' class="btn btn-warning btn-sm">Edit</a> --}}
-                    {{-- <a href='{{ url("presensi/{$item->tanggal_presensi}/{$item->nim}/edit") }}' class="btn btn-warning btn-sm">Edit</a> --}}
-                    
-                    {{-- <form id="form-edit-presensi" method="POST" action="{{ route('presensi.edit') }}">
-                        @csrf
-                        <input type="hidden" name="idPresensi" value="{{ $data->tanggal_presensi }}">
-                        <input type="hidden" name="idNIM" value="{{ $data->nim }}">
-                        <button type="submit" class="d-inline btn btn-warning btn-sm">{{ $data->tanggal_presensi }} {{ $data->nim }}</button>
-                    </form> --}}
                     <a href="{{ route('presensi_asisten.edit', ['idPresensi' => $item->tanggal_presensi, 'idNIM' => $item->nim]) }}" class="btn btn-warning btn-sm d-inline">Edit</a>
 
                       <!-- Button trigger modal -->
-
-                      <form class="d-inline" action="{{ route('presensi_asisten.destroy', [$item->tanggal_presensi, $item->nim]) }}" method="POST">
-                              @csrf
-                              @method('DELETE')
-                              <button type="submit" class="btn btn-danger btn-sm d-inline">{{ $item->nim }}</button>
-                      </form>
                       <button type="submit" class="btn btn-danger btn-sm d-inline" name="submit" data-toggle="modal" 
                     data-target="#deleteModal{{ $item->tanggal_presensi }}{{ $item->nim }}">Delete</button>
-                    {{-- <button type="submit" class="btn btn-danger btn-sm d-inline" name="submit" data-bs-toggle="modal" 
-                    data-bs-target="#deleteModal{{ $item->tanggal_presensi }}{{ $item->nim }}">(( $item->nim ))</button>
-                     --}}
+   
                   </td>
               </tr>
               <?php $i++ ?>
