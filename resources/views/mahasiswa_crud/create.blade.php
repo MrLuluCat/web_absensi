@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card mt-4">
-                    <div class="card-header">{{ __('Tambah Data Mahasiswa') }}</div>
+                    <div class="card-header">{Tambah Data Mahasiswa</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('mahasiswa.store') }}">
                             @csrf

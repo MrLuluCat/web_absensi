@@ -32,15 +32,14 @@
           <tbody>
             <?php $i = $data->firstItem() ?>
             @foreach ($data as $item)
-              <tr>
+              <tr data-toggle="modal" data-target="#viewModal{{ $item->nim }}">
                 <td>{{ $i }}</td>
                 <td>{{ $item->nim }}</td>
                 <td>{{ $item->nama }}</td>
                 <td>{{ $item->jabatan }}</td>
                 <td>
 
-                    <button type="submit" class="btn btn-primary btn-sm" name="submit" data-bs-toggle="modal" 
-                    data-bs-target="#viewModal{{ $item->nim }}">View</button>
+                    {{-- <button type="submit" class="btn btn-primary btn-sm" name="submit" >View</button> --}}
 
                     <a href='{{ url('mahasiswa/' .$item->nim. '/edit') }}' class="btn btn-warning btn-sm">Edit</a>
 
@@ -54,8 +53,60 @@
               @endforeach
             
               {{-- Modal Select --}}
-                   @foreach ($data as $item)
-                    <div class="modal fade" id="viewModal{{ $item->nim }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              @foreach ($data as $item)
+
+                  <!-- Modal -->
+              <div class="modal fade" id="viewModal{{ $item->nim }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">Info Lengkap</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form action="#" method="post">
+                        <div class="modal-body">
+                          <div class="form-group">
+                            <label for="nim">NIM</label>
+                            <input class="form-control" type="text" aria-label="Disabled input example" value="{{ $item->nim }}" disabled readonly>
+                          </div>
+                          <div class="form-group">
+                            <label for="nama">Nama</label>
+                            <input class="form-control" type="text" aria-label="Disabled input example" value="{{ $item->nama }}" disabled readonly>
+                          </div>
+                          <div class="form-group">
+                            <label for="jabatan">Fakultas</label>
+                            <input class="form-control" type="text" aria-label="Disabled input example" value="{{ $item->fakultas }}" disabled readonly>
+                          </div>
+                          <div class="form-group">
+                            <label for="jabatan">Jurusan</label>
+                            <input class="form-control" type="text" aria-label="Disabled input example" value="{{ $item->jurusan }}" disabled readonly>
+                          </div>
+                          <div class="form-group">
+                            <label for="jabatan">No Telepon</label>
+                            <input class="form-control" type="text" aria-label="Disabled input example" value="{{ $item->no_telepon }}" disabled readonly>
+                          </div>
+                          <div class="form-group">
+                            <label for="jabatan">Jenis kelamin</label>
+                            <input class="form-control" type="text" aria-label="Disabled input example" value="{{ $item->jenis_kelamin }}" disabled readonly>
+                          </div>
+                          <div class="form-group">
+                            <label for="jabatan">Jabatan</label>
+                            <input class="form-control" type="text" aria-label="Disabled input example" value="{{ $item->jabatan }}" disabled readonly>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+                    {{-- <div class="modal fade" id="viewModal{{ $item->nim }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -119,7 +170,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> --}}
               @endforeach
 
                     
