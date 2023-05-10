@@ -213,6 +213,11 @@
 <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
 <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
 <script>
+  $(document).ready(function () {
+    $('#basic-datatables').DataTable();
+});
+</script>
+<script>
 var today = new Date();
 var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 var date = today.toLocaleDateString('en-US', options);

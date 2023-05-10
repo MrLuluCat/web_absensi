@@ -26,7 +26,7 @@
                 <p class="card-text">
                   Kami dari kelompok 3 sebagai pembuat website ini, menyediakan solusi untuk memantau Presensi Asisten dengan mudah dan tersistem.
                 </p>
-                <a class="btn btn-primary" href="about.php" role="button">Pelajari Lebih Lanjut</a>
+                <a class="btn btn-primary" href="{{ url('/about') }}" role="button">Pelajari Lebih Lanjut</a>
               </div>
             </div>
           </div>

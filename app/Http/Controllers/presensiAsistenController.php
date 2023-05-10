@@ -18,9 +18,8 @@ class presensiAsistenController extends Controller
     public function index(Request $request)
     {
 
-        $tanggal = $request->tanggal_presensi ? Carbon::parse($request->input('tanggal_presensi')) : Carbon::today('Asia/Jakarta')->format('Y-m-d');
-        // $tanggal = Carbon::parse('2023-04-22')->format('Y-m-d');
-        // $viewDashboard = presensi::where('tanggal_presensi', $tanggal)->get();
+        // $tanggal = $request->tanggal_presensi ? Carbon::parse($request->input('tanggal_presensi')) : Carbon::today('Asia/Jakarta')->format('Y-m-d');
+        $tanggal = Carbon::parse('2023-05-09')->format('Y-m-d');
 
         $katakunci = $request->katakunci;
         $jumlahBaris = 6;
@@ -34,13 +33,14 @@ class presensiAsistenController extends Controller
                 ->orWhere('status', 'like', "%$katakunci%")
                 ->paginate($jumlahBaris);
         } else {
-            $data =
-            presensi::join('mahasiswa', 'presensi.nim', '=', 'mahasiswa.nim')
-            ->where('mahasiswa.jabatan', '=', 'SPV')
-                ->orWhere('mahasiswa.jabatan', '=', 'Asisten')
-                ->where('tanggal_presensi', $tanggal)
-                ->orderBy('jam_masuk', 'asc')
-                ->paginate($jumlahBaris);
+            $data = presensi::join('mahasiswa', 'presensi.nim', '=', 'mahasiswa.nim')
+            ->where(function ($query) {
+                $query->where('mahasiswa.jabatan', '=', 'SPV')
+                    ->orWhere('mahasiswa.jabatan', '=', 'Asisten');
+            })
+            ->where('tanggal_presensi', $tanggal)
+            ->orderBy('jam_masuk', 'asc')
+            ->paginate($jumlahBaris);
         }
 
 

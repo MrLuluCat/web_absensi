@@ -56,5 +56,5 @@ route::post('/session/create', [SessionController::class, 'create']);
 
 // about
 Route::get('/about', function () {
-    return view('layouts/about');
+    return view('component/about');
 });

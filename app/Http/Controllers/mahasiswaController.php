@@ -23,7 +23,7 @@ class mahasiswaController extends Controller
                 ->orWhere('jabatan', 'like', "%$katakunci%")
                 ->paginate($jumlahBaris);
         } else {
-            $data = mahasiswa::orderBy('created_at', 'desc')->paginate($jumlahBaris);
+            $data = mahasiswa::orderBy('created_at', 'asc')->paginate($jumlahBaris);
         }
        
         return view('mahasiswa_crud.index')->with('data', $data);

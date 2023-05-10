@@ -19,7 +19,7 @@
         <a href='{{ url('presensi_asisten/create') }}' class="btn btn-success">+ Tambah Data</a>
       </div>
 
-      <table class="table table-striped">
+      <table id="" class="table table-striped">
           <thead>
               <tr>
                   <th class="col-md-1">No</th>

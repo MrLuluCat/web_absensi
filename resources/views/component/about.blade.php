@@ -1,6 +1,6 @@
 @extends('layouts.template')
 <!-- START DATA -->
-@section('konten')
+@section('kontenDashboard')
 {{-- <h1>Web Absen</h1> --}}
 
 <div class="jumbotron jumbotron-fluid">

@@ -1,8 +1,9 @@
 {{-- @if(Auth::check() && Auth::user()->isAdmin()) --}}
-    @extends('admin.templateAdmin')
+    {{-- @extends('admin.templateAdmin') --}}
 {{-- @else
-    {{-- @extends('layouts.template') --}}
+
 {{-- @endif --}} 
+@extends('layouts.template')
 <!-- START DATA -->
 @section('konten')
 
@@ -24,7 +25,7 @@
         <a href='{{ url('presensi_calas/create') }}' class="btn btn-success">+ Tambah Data</a>
       </div>
 
-      <table class="table table-striped">
+      <table id="" class="table table-striped table-bordered">
           <thead>
               <tr>
                   <th class="col-md-1">No</th>
