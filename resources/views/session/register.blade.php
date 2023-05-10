@@ -33,13 +33,11 @@
 
 					<span class="login100-form-title p-b-48">
 						<!-- <i class="zmdi zmdi-font"></i> -->
-						<img src="{{ asset('assets/img/logo1.jpg') }}" width="100">
+						<img src="{{ asset('assets/img/logo_labict2.png') }}" width="100">
 					</span>
+					
 					<span class="login100-form-title p-b-26">
-						LAB ICT UBL
-					</span>
-					<span class="login100-form-title p-b-26">
-						FORM REGISTER
+						Form REGISTER
 					</span>
 
 					<div class="wrap-input100 validate-input">

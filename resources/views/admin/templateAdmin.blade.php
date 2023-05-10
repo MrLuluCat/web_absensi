@@ -127,7 +127,7 @@
                     <li class="nav-item">
                         <a data-toggle="collapse" href="#asisten">
                             <i class="fas fa-user-tie"></i>
-                            <p>Data Asisten/calas</p>
+                            <p>Data Asisten/Calas</p>
                             <span class="caret"></span>
                         </a>
                         <div class="collapse" id="asisten">
@@ -178,6 +178,22 @@
                                 <li>
                                     <a href="#">
                                         <span class="sub-item">Cetak laporan</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a data-toggle="collapse" href="#about">
+                            <i class="fas fa-info-circle"></i>
+                            <p>About</p>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="collapse" id="about">
+                            <ul class="nav nav-collapse">
+                                <li>
+                                    <a href="/about">
+                                        <span class="sub-item">Tentang Kami </span>
                                     </a>
                                 </li>
                             </ul>
