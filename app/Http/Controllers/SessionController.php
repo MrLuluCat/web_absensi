@@ -68,11 +68,13 @@ class SessionController extends Controller
             'password.required' => 'Password Wajib Di Isi',
             'password.min' => 'Password Minimum Berisi 8 Character'
         ]);
+        
         $data = [
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ];
+
         User::create($data);
         
         $infoLogin = [
@@ -81,7 +83,9 @@ class SessionController extends Controller
         ];
 
         if (Auth::attempt($infoLogin)) {
-            return redirect('/dashboard-admin')->with('success', Auth::user()->name . ' Berhasil Login');
+            $request->session()->regenerate();
+
+            return redirect()->intended('/dashboard-admin')->with('success', Auth::user()->name . ' Berhasil Login');
         } else {
             return redirect('session')->withErrors('Username & Password Yang Dimasukkan Salah');
         }
