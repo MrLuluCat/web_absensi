@@ -125,12 +125,12 @@
                         <h4 class="text-section">Menu Utama</h4>
                     </li>
                     <li class="nav-item">
-                        <a data-toggle="collapse" href="#calas">
+                        <a data-toggle="collapse" href="#asisten">
                             <i class="fas fa-user-tie"></i>
-                            <p>Data Asisten/SPV</p>
+                            <p>Data Asisten/calas</p>
                             <span class="caret"></span>
                         </a>
-                        <div class="collapse" id="calas">
+                        <div class="collapse" id="asisten">
                             <ul class="nav nav-collapse">
                                 <li>
                                     <a href="">
@@ -138,7 +138,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ url('mahasiswa') }}">
                                         <span class="sub-item">Daftar Asisten</span>
                                     </a>
                                 </li>
@@ -201,6 +201,7 @@
                 @include('component.massage')
 
                 @yield('konten')
+                @yield('kontenDashboard')
                 </div>
             </div>
                 

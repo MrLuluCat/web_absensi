@@ -32,11 +32,11 @@
           <tbody>
             <?php $i = $data->firstItem() ?>
             @foreach ($data as $item)
-              <tr data-toggle="modal" data-target="#viewModal{{ $item->nim }}">
-                <td>{{ $i }}</td>
-                <td>{{ $item->nim }}</td>
-                <td>{{ $item->nama }}</td>
-                <td>{{ $item->jabatan }}</td>
+              <tr >
+                <td data-toggle="modal" data-target="#viewModal{{ $item->nim }}">{{ $i }}</td>
+                <td data-toggle="modal" data-target="#viewModal{{ $item->nim }}">{{ $item->nim }}</td>
+                <td data-toggle="modal" data-target="#viewModal{{ $item->nim }}">{{ $item->nama }}</td>
+                <td data-toggle="modal" data-target="#viewModal{{ $item->nim }}">{{ $item->jabatan }}</td>
                 <td>
 
                     {{-- <button type="submit" class="btn btn-primary btn-sm" name="submit" >View</button> --}}
