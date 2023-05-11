@@ -49,7 +49,7 @@ Route::put('/presensi_calas/{idPresensi}/{idNIM}', [presensiCalasController::cla
 Route::delete('/presensi_calas/{idPresensi}/{idNIM}', [presensiCalasController::class, 'destroy'])->name('presensi_calas.destroy');
 
 // Session
-route::get('/session',[SessionController::class, 'index'])->middleware('isGuest');
+route::get('/session',[SessionController::class, 'index']);
 route::post('/session/login',[SessionController::class, 'login']);
 route::get('/session/logout',[SessionController::class, 'logout']);
 // sessionRegisterUsers
