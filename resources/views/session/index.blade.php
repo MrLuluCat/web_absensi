@@ -33,7 +33,7 @@
 
 					<span class="login100-form-title p-b-48">
 						<!-- <i class="zmdi zmdi-font"></i> -->
-						<img src="../assets/img/logo1.jpg" width="100">
+						<img src="{{ asset('assets/img/logo_labict2.png') }}" width="100">
 					</span>
 					<span class="login100-form-title p-b-26">
 						Lab ICT UBL
@@ -58,6 +58,10 @@
 							<button type="submit" class="login100-form-btn">
 								Login
 							</button>
+						</div>
+						<div class="text-center">
+							<p>_______ <a href="{{'/session/register'}}">_____</a></p>
+							
 						</div>
 					</div>
 				</form>
