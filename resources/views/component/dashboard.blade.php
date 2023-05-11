@@ -6,6 +6,10 @@
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-4">Selamat datang di Website Presensi LAB ICT UBL</h1>
+				
+				{{-- @if(session()->has('email'))
+                    <p>testes, {{ session('email') }}!</p>
+                @endif --}}
                 <p class="lead">
                     Website ini membantu Anda memantau presensi Asisten dengan mudah.
                 </p>

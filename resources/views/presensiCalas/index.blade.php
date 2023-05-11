@@ -1,9 +1,9 @@
-{{-- @if(Auth::check() && Auth::user()->isAdmin()) --}}
-    {{-- @extends('admin.templateAdmin') --}}
-{{-- @else
-
-{{-- @endif --}} 
+{{-- @if(session()->has('role')) --}}
+{{-- @extends('admin.templateAdmin') --}}
+{{-- @else --}}
 @extends('layouts.template')
+{{-- @endif  --}}
+
 <!-- START DATA -->
 @section('konten')
 
@@ -50,12 +50,16 @@
                             <td>{{ $item->jam_masuk }}</td>
                             <td>{{ $item->jam_keluar }}</td>
                             <td>{{ $item->status }}</td>
+                            
                             <td>
                                 <a href="{{ route('presensi_calas.edit', ['idPresensi' => $item->tanggal_presensi, 'idNIM' => $item->nim]) }}" class="btn btn-warning btn-sm d-inline">Edit</a>
-
+                                
+                                @if(session()->has('role'))
                                 <!-- Button trigger modal -->
                                 <button type="submit" class="btn btn-danger btn-sm d-inline" name="submit" data-toggle="modal" data-target="#deleteModal{{ $item->tanggal_presensi }}{{ $item->nim }}">Delete</button>
+                                @endif
                             </td>
+                            
                         </tr>
                         <?php $i++ ?>
                     @endforeach

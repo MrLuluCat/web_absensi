@@ -26,11 +26,20 @@ class SessionController extends Controller
             'email.required' => 'Email Wajib Di Isi',
             'password.required' => 'Password Wajib Di Isi'
         ]);
-
+        
         $infoLogin = [
             'email' => $request->email,
             'password' => $request->password
         ];
+
+        session()->put([
+            'email' => $request->email,
+            'password' => $request->password,
+            'role' => "admin"
+        ]);
+        
+        // dd(session()->all());
+        // dd("testing");
 
         if(Auth::attempt($infoLogin)){
             return redirect('/dashboard-admin')->with('success', 'Berhasil Login');
@@ -43,6 +52,7 @@ class SessionController extends Controller
     function logout()
     {
         Auth::logout();
+        Session::flush();
         return redirect('/dashboard')->with('success', 'Berhasil Logout');
     }
 
@@ -85,6 +95,7 @@ class SessionController extends Controller
             'email' => $request->email,
             'password' => $request->password
         ];
+
 
         if (Auth::attempt($infoLogin)) {
             $request->session()->regenerate();
