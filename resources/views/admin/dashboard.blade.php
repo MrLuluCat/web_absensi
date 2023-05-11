@@ -2,13 +2,14 @@
 <!-- START DATA -->
 @section('kontenDashboard')
 <!-- End Sidebar -->
+<div class="container">
 			<div class="row mt-2">
 				<div class="col-md-6">
 					<div class="card full-height">
 						<div class="card-body">
 							<div class="card-title">
 								<center>
-									<img src="{{ asset('assets/img/logo1.jpg') }}" width="100">
+									<img src="{{ asset('assets/img/logo_labict2.png') }}" width="100">
 									<br>
 									<b>LAB ICT UBL</b>
 								</center>
