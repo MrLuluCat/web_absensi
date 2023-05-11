@@ -42,7 +42,7 @@ class SessionController extends Controller
         // dd("testing");
 
         if(Auth::attempt($infoLogin)){
-            return redirect('/dashboard-admin')->with('success', 'Berhasil Login');
+            return redirect('/dashboard')->with('success', 'Berhasil Login');
         } else {
             return redirect('session')->withErrors('Username & Password Yang Dimasukkan Salah');    
         }
@@ -100,7 +100,7 @@ class SessionController extends Controller
         if (Auth::attempt($infoLogin)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/dashboard-admin')->with('success', Auth::user()->name . ' Berhasil Login');
+            return redirect()->intended('/dashboard')->with('success', Auth::user()->name . ' Berhasil Login');
         } else {
             return redirect('session')->withErrors('Username & Password Yang Dimasukkan Salah');
         }

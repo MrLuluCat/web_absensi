@@ -1,15 +1,15 @@
-@extends('admin.templateAdmin')
+@extends('layouts.template')
 <!-- START DATA -->
 @section('kontenDashboard')
     {{-- <h1>Web Absen</h1> --}}
-    <div class="container">
+
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 class="display-4">Kelompok 3</h1>
             <p class="lead">
                 Kami memiliki tujuan yang sama yaitu mencapai hasil terbaik dalam pembuatan web absensi ini .
             </p>
-            <h class="my-4" />
+            {{-- <h class="my-4" /> --}}
         </div>
     </div>
 

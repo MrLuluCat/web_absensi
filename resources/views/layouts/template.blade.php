@@ -38,15 +38,13 @@
 
 <body>
 
-
-
   <div class="wrapper">
 
     <div class="main-header">
 
       <!-- Logo Header -->
       <div class="logo-header" data-background-color="blue">
-        <a href="{{ url('dashboard') }}" class="logo">
+        <a href="{{ url('/dashboard') }}" class="logo">
           <!-- <img src="../assets/img/mts.png" alt="navbar brand" class="navbar-brand" width="40"> -->
           <b class="text-white">Website Presensi</b>
         </a>
@@ -103,7 +101,29 @@
               </span>
               <h4 class="text-section">Main Menu</h4>
             </li>
-
+            @if (Auth::check())
+            <li class="nav-item">
+                <a data-toggle="collapse" href="#asisten">
+                    <i class="fas fa-user-tie"></i>
+                    <p>Data Asisten/Calas</p>
+                    <span class="caret"></span>
+                </a>
+                <div class="collapse" id="asisten">
+                    <ul class="nav nav-collapse">
+                        <li>
+                            <a href="{{ url('mahasiswa') }}">
+                                <span class="sub-item">Tambah Asisten</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('mahasiswa') }}">
+                                <span class="sub-item">Daftar Asisten</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            @endif
             <li class="nav-item">
               <a data-toggle="collapse" href="#presensi">
                 <i class="fas fa-user-friends"></i>
@@ -125,8 +145,58 @@
                   </li>
                 </ul>
               </div>
-
             </li>
+            
+          {{-- <div class="sidebar-content">
+                    <div class="user">
+                        
+                        <!-- <div class="info">
+							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+								<span>
+									<//?= $data['nama_lengkap'] ?>
+									<span class="user-level">Administrator</span>
+									<span class="caret"></span>
+								</span>
+							</a>
+							<div class="clearfix"></div>
+
+							<div class="collapse in" id="collapseExample">
+								<ul class="nav">
+
+									<li>
+										<a href="#" data-toggle="modal" data-target="#pengaturanAkun" class="collapsed">
+											<span class="link-collapse">Pengaturan Akun</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" data-toggle="modal" data-target="#gantiPassword" class="collapsed">
+											<span class="link-collapse">Ganti Password</span>
+										</a>
+									</li>
+
+								</ul>
+							</div> -->
+                    </div>
+                </div> --}}
+
+          @if (Auth::check())
+          <li class="nav-item">
+              <a data-toggle="collapse" href="#Laporan">
+                  <i class="fas fa-list-alt"></i> 
+                  <p>Laporan</p> 
+                  <span class="caret"></span> 
+              </a>
+              <div class="collapse" id="Laporan">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="#">
+                        <span class="sub-item">Cetak laporan</span>
+                      </a>
+                    </li>
+                  </ul>
+              </div>
+            </li>
+            @endif
 
             <li class="nav-item">
               <a data-toggle="collapse" href="#about">
@@ -141,27 +211,25 @@
                       <span class="sub-item">Tentang Kami </span>
                     </a>
                   </li>
-                  <!-- <li>
-                    <a href="?page=about&act=add ">
-                      <span class="sub-item">Tentang Aplikasi Ini </span>
-                    </a>
-                  </li> -->
                 </ul>
               </div>
             </li>
+
+            @if (Auth::check())
+            <li class="nav-item active mt-3"> 
+                <a href="{{ url('/session/logout') }}" class="collapsed">
+                    <i class="fas fa-arrow-alt-circle-left"></i>
+                    <p>Logout</p>
+                </a>
+            </li>
+            @else
             <li class="nav-item active mt-3">
               <a href="{{ url('/session') }}" class="collapsed">
                 <i class="fas fa-arrow-alt-circle-right"></i>
                 <p>Login</p>
               </a>
             </li>
-
-            {{-- <li class="nav-item active mt-3">
-              <a href="{{ url('/session/logout') }}" class="collapsed">
-                <i class="fas fa-arrow-alt-circle-left"></i>
-                <p>Logout</p>
-              </a>
-            </li> --}}
+            @endif
 
           </ul>
         </div>
@@ -173,17 +241,16 @@
 
      <div class="content">
 
-        {{-- @include('component.massage') --}}
+        @include('component.massage')
 
         @yield('kontenDashboard')
 
         <div class="page-inner">
-        @include('component.massage')
+
+        {{-- @include('component.massage') --}}
 
         @yield('konten')
 
-        
-        @yield('guest_content')
         </div>
 
     </div>

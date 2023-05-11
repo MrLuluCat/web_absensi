@@ -18,7 +18,7 @@ class isGuest
     public function handle(Request $request, Closure $next)
     {
         if (Auth::check()) {
-            return redirect()->intended('/session')->with('success','Silakan Login Terlebih Dahulu');
+            return redirect()->intended('/dashboard')->with('success','Sudah Dalam Keadaan Login');
         }
         return $next($request);
     }

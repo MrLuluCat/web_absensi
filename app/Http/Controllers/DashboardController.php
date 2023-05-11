@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\mahasiswa;
 use Illuminate\Support\Carbon;
 use App\Models\presensi;
 use Illuminate\Http\Request;
@@ -16,12 +17,35 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
         $tanggal = $request->tanggal_presensi ? Carbon::parse($request->input('tanggal_presensi')) : Carbon::today('Asia/Jakarta')->format('Y-m-d');
-        $jumlahPresensi = presensi::join('mahasiswa', 'presensi.nim', '=', 'mahasiswa.nim')
+        
+        $jumlahCalas = presensi::join('mahasiswa', 'presensi.nim', '=', 'mahasiswa.nim')
         ->where('mahasiswa.jabatan', '=', 'Calas')
             ->where('tanggal_presensi', $tanggal)
             ->count();
 
-        return view('component/dashboard',)->with('data', $jumlahPresensi);
+        $jumlahAsisten = presensi::join('mahasiswa', 'presensi.nim', '=', 'mahasiswa.nim')
+            ->where(function ($query) {
+                $query->where('mahasiswa.jabatan', '=', 'SPV')
+                    ->orWhere('mahasiswa.jabatan', '=', 'Asisten');
+            })
+        ->where('tanggal_presensi', $tanggal)
+        ->count();
+
+        $totalCalas = mahasiswa::select('*')
+        ->where('jabatan', '=', 'Calas')
+            ->count();
+
+        $totalAsisten = mahasiswa::select('*')
+        ->where('jabatan', '=', 'SPV')
+        ->orWhere('jabatan', '=', 'Asisten')
+        ->count();
+
+        return view('component.dashboard', [
+            'jumlahCalas' => $jumlahCalas,
+            'jumlahAsisten' => $jumlahAsisten,
+            'totalCalas' => $totalCalas,
+            'totalAsisten' => $totalAsisten
+        ]);
     }
 
     /**

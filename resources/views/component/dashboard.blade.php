@@ -2,25 +2,22 @@
 <!-- START DATA -->
 @section('kontenDashboard')
     <!-- akhir side bar -->
-    <div class="container">
-        <div class="jumbotron jumbotron-fluid">
+
+    <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-4">Selamat datang di Website Presensi LAB ICT UBL</h1>
-				
-				{{-- @if(session()->has('email'))
-                    <p>testes, {{ session('email') }}!</p>
-                @endif --}}
+                <h1 class="display-4">Selamat Datang di Website Presensi LAB ICT Universitas Budi Luhur</h1>
                 <p class="lead">
-                    Website ini membantu Anda memantau presensi Asisten dengan mudah.
+                    Website ini membantu anda memantau presensi Asisten LAB ICT dengan mudah.
                 </p>
                 <hr class="my-4" />
                 <p>
-                    Kami menyediakan solusi yang mudah dan efisien untuk memantau presensi Asisten.
+                Kami menyediakan solusi yang mudah dan efisien untuk memantau presensi Asisten.
                 </p>
             </div>
-
-
         </div>
+
+    <div class="container">
+        
         <div class="container">
             <div>
                 <div class="card ">
@@ -42,10 +39,8 @@
                                             <div class="col-7 col-stats"
                                                 onclick="location.href='/*arahin ke halaman presensi asisten hari ini*/'">
                                                 <div class="numbers">
-                                                    <p class="card-category">Kehadiran Calas  {{ $data }}</p>
-                                                    <h4 class="card-title">
-
-                                                    </h4>
+                                                    <p class="card-category">Kehadiran <br> Calas : {{ $jumlahCalas }}</p>
+                                                    <h4 class="card-title"></h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -63,7 +58,7 @@
                                             </div>
                                             <div class="col-1 col-stats" onclick="location.href='#'">
                                                 <div class="numbers">
-                                                    <p class="card-category">Kehadiran Asisten  {{ $data }}</p>
+                                                    <p class="card-category">Kehadiran Asisten : {{ $jumlahAsisten }}</p>
                                                     <h4 class="card-title">
                                                     </h4>
                                                 </div>
@@ -81,10 +76,10 @@
                                                     <i class="fas fa-user-tie"></i>
                                                 </div>
                                             </div>
-                                            <div class="col-1 col-stats"
+                                            <div class="col-6 col-stats"
                                                 onclick="location.href='dashboard.php?page=siswa#'">
                                                 <div class="numbers">
-                                                    <p class="card-category">Total Calas</p>
+                                                    <p class="card-category">Total Calas :<br>{{ $totalCalas }}</p>
                                                     <h4 class="card-title">
                                                     </h4>
                                                 </div>
@@ -102,9 +97,9 @@
                                                     <i class="fas fa-user-tie"></i>
                                                 </div>
                                             </div>
-                                            <div class="col-1 col-stats" onclick="location.href='#'">
+                                            <div class="col-6 col-stats" onclick="location.href='#'">
                                                 <div class="numbers">
-                                                    <p class="card-category">Total Asisten</p>
+                                                    <p class="card-category">Total Asisten :<br> {{ $totalAsisten }}</p>
                                                     <h4 class="card-title">
                                                     </h4>
                                                 </div>
@@ -114,13 +109,7 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-
-
                         <!-- end -->
-
                     </div>
 
 
@@ -151,9 +140,6 @@
                                             Password</button>
                                     </div>
                                 </form>
-
-
-
                             </div>
                         </div>
                     </div>
@@ -212,29 +198,28 @@
 
         <div class="container">
             <div>
-                <div>
-                    <div class="card full-height">
                         <div class="card-body">
                             <div class="row">
+
                                 <div class="col-md-5">
                                     <div class="card">
                                         <div class="card-body mb-3">
-                                            <h2 class="card-title">Tentang Kami</h2>
+                                            <h2 class="card-title mb-4">Tentang Kami</h2>
                                             <p class="card-text">
                                                 Kami dari kelompok 3 sebagai pembuat website ini, menyediakan solusi untuk
                                                 memantau Presensi Asisten dengan mudah dan tersistem.
                                             </p>
                                             <a class="btn btn-primary btn-sm" href="{{ url('/about') }}"
-                                                role="button">Pelajari
-                                                Lebih Lanjut</a>
+                                                role="button">Pelajari Lebih Lanjut</a>
                                         </div>
                                     </div>
                                 </div>
+                                
                                 <div class="col-md-7">
                                     <div class="card">
-                                        <div class="card-body mb-1">
-                                            <h2 class="card-title">Kontak</h2>
-                                            <address>
+                                        <div class="card-body mb-3">
+                                            <h2 class="card-title mb-2">Kontak</h2>
+                                            <address >
                                                 <strong>LAB ICT UBL</strong><br />
                                                 Jl. Ciledug Raya No.99, RT.1/RW.2,
                                                 Petukangan Utara, Kec.<br /> Pesanggrahan,

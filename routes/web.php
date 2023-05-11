@@ -20,18 +20,18 @@ use App\Http\Controllers\presensiAsistenController;
 
 // default
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->to('/dashboard');
 });
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/dashboard', function () {
-    return view('component/dashboard');
-});
+// Route::get('/dashboard', function () {
+//     return view('component/dashboard');
+// });
 
+// DashboardController
 Route::resource('dashboard', DashboardController::class);
-
-Route::get('/dashboard-admin', function () {
-    return view('admin/dashboard');
-});
 
 // mahasiswaController
 Route::resource('mahasiswa', mahasiswaController::class)->middleware('isLogin');
@@ -49,12 +49,12 @@ Route::put('/presensi_calas/{idPresensi}/{idNIM}', [presensiCalasController::cla
 Route::delete('/presensi_calas/{idPresensi}/{idNIM}', [presensiCalasController::class, 'destroy'])->name('presensi_calas.destroy');
 
 // Session
-route::get('/session',[SessionController::class, 'index']);
+route::get('/session',[SessionController::class, 'index'])->middleware('isGuest');
 route::post('/session/login',[SessionController::class, 'login']);
 route::get('/session/logout',[SessionController::class, 'logout']);
 // sessionRegisterUsers
-route::get('/session/register', [SessionController::class, 'register']);
-route::post('/session/create', [SessionController::class, 'create']);
+route::get('/session/register', [SessionController::class, 'register'])->middleware('isGuest');
+route::post('/session/create', [SessionController::class, 'create'])->middleware('isGuest');
 
 
 // about

@@ -1,6 +1,7 @@
 @extends('layouts.template')
 <!-- START DATA -->
 @section('konten')
+
 <div class="my-3 p-3 bg-body rounded shadow-sm">
      
       <!-- FORM PENCARIAN -->
@@ -46,9 +47,10 @@
                     <a href="{{ route('presensi_asisten.edit', ['idPresensi' => $item->tanggal_presensi, 'idNIM' => $item->nim]) }}" class="btn btn-warning btn-sm d-inline">Edit</a>
 
                       <!-- Button trigger modal -->
-                      <button type="submit" class="btn btn-danger btn-sm d-inline" name="submit" data-toggle="modal" 
+                    @if (Auth::check())
+                    <button type="submit" class="btn btn-danger btn-sm d-inline" name="submit" data-toggle="modal" 
                     data-target="#deleteModal{{ $item->tanggal_presensi }}{{ $item->nim }}">Delete</button>
-   
+                    @endif
                   </td>
               </tr>
               <?php $i++ ?>

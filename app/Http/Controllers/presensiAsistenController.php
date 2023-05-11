@@ -18,8 +18,8 @@ class presensiAsistenController extends Controller
     public function index(Request $request)
     {
 
-        // $tanggal = $request->tanggal_presensi ? Carbon::parse($request->input('tanggal_presensi')) : Carbon::today('Asia/Jakarta')->format('Y-m-d');
-        $tanggal = Carbon::parse('2023-05-09')->format('Y-m-d');
+        $tanggal = $request->tanggal_presensi ? Carbon::parse($request->input('tanggal_presensi')) : Carbon::today('Asia/Jakarta')->format('Y-m-d');
+        // $tanggal = Carbon::parse('2023-05-09')->format('Y-m-d');
 
         $katakunci = $request->katakunci;
         $jumlahBaris = 6;

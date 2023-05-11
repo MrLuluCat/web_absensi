@@ -1,0 +1,45 @@
+                                                    // Data SPV & Asisten \\
+
+('2011501588','Fajri Jeisyazidan Albarda','Teknologi Informasi','Teknik Informatika','0881024277568','Laki-laki','SPV', NULL, NULL),
+('2031500636','Adellia Tessalonika Oviantara','Ekonomi & Bisnis','Manajemen','085536728216','Perempuan','Asisten', NULL, NULL),
+('2011500622','Ilham Zakaria','Teknologi Informasi','Teknik Informatika','0895322279587','Laki-laki','SPV', NULL, NULL),
+('2032500460','Rahayu Dwi Anggraini','Ekonomi & Bisnis','Manajemen','085779710751','Perempuan','SPV', NULL, NULL),
+('2011500598','Rayhan Febriyan Saputra','Teknologi Informasi','Teknik Informatika','0895330862314','Laki-laki','SPV', NULL, NULL),
+('2032500734','Diana Fidia','Ekonomi & Bisnis','Manajemen','085884746213','Perempuan','SPV', NULL, NULL),
+('2031500982','Muhammad Farhan Afirio Pratama','Ekonomi & Bisnis','Manajemen','089608491733','Laki-laki','SPV', NULL, NULL),
+('2011500770','Dzulfikar Saif Assalam','Teknologi Informasi','Teknik Informatika','089629904642','Laki-laki','Asisten', NULL, NULL),
+('2011500630','Rizky Muhammad Anwar','Teknologi Informasi','Teknik Informatika','085280173809','Laki-laki','Asisten', NULL, NULL),
+('2011501851','Muhammad Syawaladi Kukuh Prakoso','Teknologi Informasi','Teknik Informatika','085155333903','Laki-laki','Asisten', NULL, NULL),
+('2011501554','Tito Ponda','Teknologi Informasi','Teknik Informatika','081386123925','Laki-laki','Asisten', NULL, NULL),
+('2011501315','Raihan Labib Hanif','Teknologi Informasi','Teknik Informatika','081284931789','Laki-laki','Asisten', NULL, NULL),
+('2111501652','Alfan Kasyfil Aziz','Teknologi Informasi','Teknik Informatika','089619292123','Laki-laki','Asisten', NULL, NULL),
+('2011501703','Fadhillah Fauzan Rachman','Teknologi Informasi','Teknik Informatika','081211360801','Laki-laki','Asisten', NULL, NULL),
+('2011501778','Muhammad Eri Setyawan','Teknologi Informasi','Teknik Informatika','089635758226','Laki-laki','Asisten', NULL, NULL),
+('2111500522','Abiyyu Dhiyaul Haq','Teknologi Informasi','Teknik Informatika','081314402772','Laki-laki','Asisten', NULL, NULL),
+('2112500687','Maulana Krisna Bayu Pratama','Teknologi Informasi','Sistem Informasi','089639642519','Laki-laki','Asisten', NULL, NULL),
+('2131500676','Muhammad Eka Ihza Muzaki','Ekonomi & Bisnis','Manajemen','085159791180','Laki-laki','Asisten', NULL, NULL),
+('2111500340','Muhammad Arafie Setiawan','Teknologi Informasi','Teknik Informatika','089652744415','Laki-laki','Asisten', NULL, NULL),
+('2111501298','Bariq Gian Gumilang','Teknologi Informasi','Teknik Informatika','083166471506','Laki-laki','Asisten', NULL, NULL),
+('2111500472','M. Nur Ikbal','Teknologi Informasi','Teknik Informatika','085601133391','Laki-laki','Asisten', NULL, NULL),
+('2011501380','Muhammad Daffa Aditya','Teknologi Informasi','Teknik Informatika','088977305330','Laki-laki','Asisten', NULL, NULL),
+('2111500662','Kelvin Pahotton Simamora','Teknologi Informasi','Teknik Informatika','082273453051','Laki-laki','Asisten', NULL, NULL),
+('2032500593','Ahmad Hamzah Hanif Fauzi','Ekonomi & Bisnis','Manajemen','081806848592','Laki-laki','Asisten', NULL, NULL),
+('2011501182','Achmad Khoiri','Teknologi Informasi','Teknik Informatika','085155115963','Laki-laki','Asisten', NULL, NULL),
+('2032500718','Tuti','Ekonomi & Bisnis','Manajemen','089503250434','Perempuan','Asisten', NULL, NULL),
+('2112501149','Gilang Montana','Teknologi Informasi','Teknik Informatika','085892763697','Laki-laki','Asisten', NULL, NULL),
+('2031500636','Adellia Tessalonika Oviantara','Ekonomi & Bisnis','Manajemen','085536728216','Perempuan','Asisten', NULL, NULL);
+
+                                                // Data Calas \\
+                                                
+('2111500209','Nabil Abdul Salam F','Teknologi Informasi','Teknik Informatika','087778315008','Laki-laki','Calas', NULL, NULL)
+('2211502022','Aris Setiabudi','Teknologi Informasi','Teknik Informatika','082143557292','Laki-laki','Calas', NULL, NULL)
+('2111501462','Charis Trisuard','Teknologi Informasi','Teknik Informatika','082112723905','Laki-laki','Calas', NULL, NULL)
+('2211501073','Fajar Sidik','Teknologi Informasi','Teknik Informatika','088972718656','Laki-laki','Calas', NULL, NULL)
+('2211500810','Gita Amanda Hutabarat','Teknologi Informasi','Teknik Informatika','081261660546','Perempuan','Calas', NULL, NULL)
+('2211501941','Mochamad Rhiezky Eka Putra','Teknologi Informasi','Teknik Informatika','082114601424','Laki-laki','Calas', NULL, NULL)
+('2211500232','Mohamad Rafli Maulana','Teknologi Informasi','Teknik Informatika','085710420901','Laki-laki','Calas', NULL, NULL)
+('2111500688','Muhamad Rifqi Fadhillah','Teknologi Informasi','Teknik Informatika','085693315134','Laki-laki','Calas', NULL, NULL)
+('2211501115','Surya Maulana','Teknologi Informasi','Teknik Informatika','089653779736','Laki-laki','Calas', NULL, NULL)
+('2112501552','Yulia Puspita Dewi','Teknologi Informasi','Sitem Informasi','089608352120','Perempuan','Calas', NULL, NULL)
+('2131501344','Nikma Istiana','Ekonomi & Bisnis','Manajemen','085877504616','Perempuan','Calas', NULL, NULL)
+('2131500759','Putri Itriyani','Ekonomi & Bisnis','Manajemen','089503006306','Perempuan','Calas', NULL, NULL)
