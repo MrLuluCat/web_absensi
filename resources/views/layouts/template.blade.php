@@ -181,6 +181,9 @@
         @include('component.massage')
 
         @yield('konten')
+
+        
+        @yield('guest_content')
         </div>
 
     </div>

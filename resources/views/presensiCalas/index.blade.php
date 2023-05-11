@@ -1,11 +1,8 @@
-{{-- @if(Auth::check() && Auth::user()->isAdmin()) --}}
-    {{-- @extends('admin.templateAdmin') --}}
-{{-- @else
 
-{{-- @endif --}} 
-@extends('layouts.template')
+  @extends('layouts.template')
+
+  @section('guest_content')
 <!-- START DATA -->
-@section('konten')
 
 <div class="my-3 p-3 bg-body rounded shadow-sm">
      

@@ -46,8 +46,12 @@ class SessionController extends Controller
         return redirect('/dashboard')->with('success', 'Berhasil Logout');
     }
 
-    function register() 
+    function register(Request $request) 
     {
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
         return view('session/register');
     }
 

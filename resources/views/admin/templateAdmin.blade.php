@@ -202,6 +202,7 @@
 
                 @yield('konten')
                 @yield('kontenDashboard')
+                @yield('admin_content')
                 </div>
             </div>
                 
