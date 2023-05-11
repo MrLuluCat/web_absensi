@@ -196,8 +196,8 @@
 <footer class="page-footer font-small blue">
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2023 by Kelompok 3:
-    <a href="{{ url('/dashboard') }}"> Web Absensi LAB ICT 2023</a>
+  <div class="footer-copyright text-center py-3">© 2023 by Kelompok 3
+    <a href=""> Web Absensi LAB ICT 2023</a>
   </div>
   <!-- Copyright -->
 
