@@ -2,7 +2,7 @@
 <!-- START DATA -->
 @section('kontenDashboard')
     <!-- akhir side bar -->
-    
+    <div class="container">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-4">Selamat datang di Website Presensi LAB ICT UBL</h1>
@@ -17,97 +17,100 @@
 
 
         </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Data</h4>
-                </div>
-                <div class="card-body">
+        <div class="container">
+            <div>
+                <div class="card ">
+                    <div class="card-header">
+                        <h4 class="card-title">Data</h4>
+                    </div>
+                    <div class="card-body">
 
-                    <div class="row">
+                        <div class="row justify-content-end">
+                            <div class="col-sm-6 col-md-3">
+                                <div class="card card-stats card-secondary card-round">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <div class="icon-big text-center">
+                                                    <i class="flaticon-users"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-7 col-stats"
+                                                onclick="location.href='/*arahin ke halaman presensi asisten hari ini*/'">
+                                                <div class="numbers">
+                                                    <p class="card-category">Kehadiran Calas  {{ $data }}</p>
+                                                    <h4 class="card-title">
 
-                        <div class="col-sm-6 col-md-6">
-                            <div class="card card-stats card-secondary card-round">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-5">
-                                            <div class="icon-big text-center">
-                                                <i class="flaticon-users"></i>
+                                                    </h4>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-7 col-stats"
-                                            onclick="location.href='/*arahin ke halaman presensi asisten hari ini*/'">
-                                            <div class="numbers">
-                                                <p class="card-category">Total Kehadiran Calas {{ $data }}</p>
-                                                <h4 class="card-title">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="card card-stats card-secondary card-round">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <div class="icon-big text-center">
+                                                    <i class="flaticon-users"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-1 col-stats" onclick="location.href='#'">
+                                                <div class="numbers">
+                                                    <p class="card-category">Kehadiran Asisten  {{ $data }}</p>
+                                                    <h4 class="card-title">
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="card card-stats card-default card-round">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <div class="icon-big text-center">
+                                                    <i class="fas fa-user-tie"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-1 col-stats"
+                                                onclick="location.href='dashboard.php?page=siswa#'">
+                                                <div class="numbers">
+                                                    <p class="card-category">Total Calas</p>
+                                                    <h4 class="card-title">
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="card card-stats card-default card-round">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <div class="icon-big text-center">
+                                                    <i class="fas fa-user-tie"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-1 col-stats" onclick="location.href='#'">
+                                                <div class="numbers">
+                                                    <p class="card-category">Total Asisten</p>
+                                                    <h4 class="card-title">
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                                </h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6">
-                            <div class="card card-stats card-secondary card-round">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-5">
-                                            <div class="icon-big text-center">
-                                                <i class="flaticon-users"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-1 col-stats" onclick="location.href='#'">
-                                            <div class="numbers">
-                                                <p class="card-category">Total Kehadiran Asisten</p>
-                                                <h4 class="card-title">
-                                                </h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6">
-                            <div class="card card-stats card-default card-round">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-5">
-                                            <div class="icon-big text-center">
-                                                <i class="fas fa-user-tie"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-7 col-stats" onclick="location.href='dashboard.php?page=siswa#'">
-                                            <div class="numbers">
-                                                <p class="card-category">Total Calas</p>
-                                                <h4 class="card-title">
-                                                </h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6">
-                            <div class="card card-stats card-default card-round">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-5">
-                                            <div class="icon-big text-center">
-                                                <i class="fas fa-user-tie"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-7 col-stats" onclick="location.href='#'">
-                                            <div class="numbers">
-                                                <p class="card-category">Total Asisten</p>
-                                                <h4 class="card-title">
-                                                </h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
 
 
@@ -198,10 +201,16 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
 
-                    
 
-                        <div class="row">
+        <div class="container">
+            <div>
+                <div>
+                    <div class="card full-height">
+                        <div class="card-body">
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="card">
@@ -211,7 +220,9 @@
                                                 Kami dari kelompok 3 sebagai pembuat website ini, menyediakan solusi untuk
                                                 memantau Presensi Asisten dengan mudah dan tersistem.
                                             </p>
-                                            <a class="btn btn-primary" href="{{ url('/about') }}" role="button">Pelajari Lebih Lanjut</a>
+                                            <a class="btn btn-primary btn-sm" href="{{ url('/about') }}"
+                                                role="button">Pelajari
+                                                Lebih Lanjut</a>
                                         </div>
                                     </div>
                                 </div>
@@ -234,4 +245,5 @@
                                     </div>
                                 </div>
                             </div>
-                        @endsection
+                        </div>
+                    @endsection

@@ -133,7 +133,7 @@
                         <div class="collapse" id="asisten">
                             <ul class="nav nav-collapse">
                                 <li>
-                                    <a href="">
+                                    <a href="{{ url('mahasiswa') }}">
                                         <span class="sub-item">Tambah Asisten</span>
                                     </a>
                                 </li>
