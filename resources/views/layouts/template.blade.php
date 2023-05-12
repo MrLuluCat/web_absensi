@@ -27,6 +27,13 @@
   <!-- CSS Files -->
   <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/atlantis.min.css')}}">
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
+<script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
   <style>
     .display-4 {
       margin-top: 20px;
@@ -69,8 +76,8 @@
           <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
             <li class="nav-item">
               <a class="nav-link" href="#" data-toggle="dropdown">
-                <i class="fa fa-calendar"></i>
-                <span id="todayDate"></span>
+                <i class="fa fa-calendar"> </i>
+                <span id="todayDate" class="ml-1"></span>
               </a>
             </li>
           </ul>
@@ -189,7 +196,7 @@
               <div class="collapse" id="Laporan">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="{{ url('/cetak_laporan') }}">
+                      <a href="{{ url('/laporan') }}">
                         <span class="sub-item">Cetak laporan</span>
                       </a>
                     </li>

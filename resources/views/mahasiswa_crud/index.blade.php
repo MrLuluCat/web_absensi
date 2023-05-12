@@ -19,7 +19,7 @@
         <a href='{{ url('mahasiswa/create') }}' class="btn btn-success">+ Tambah Data</a>
       </div>
 
-      <table class="table table-striped">
+      <table class="table table-striped table-hover">
           <thead>
               <tr>
                   <th class="col-md-1">No</th>
@@ -32,7 +32,7 @@
           <tbody>
             <?php $i = $data->firstItem() ?>
             @foreach ($data as $item)
-              <tr >
+              <tr>
                 <td data-toggle="modal" data-target="#viewModal{{ $item->nim }}">{{ $i }}</td>
                 <td data-toggle="modal" data-target="#viewModal{{ $item->nim }}">{{ $item->nim }}</td>
                 <td data-toggle="modal" data-target="#viewModal{{ $item->nim }}">{{ $item->nama }}</td>
@@ -40,14 +40,13 @@
                 <td>
 
                     {{-- <button type="submit" class="btn btn-primary btn-sm" name="submit" >View</button> --}}
-
                     <a href='{{ url('mahasiswa/' .$item->nim. '/edit') }}' class="btn btn-warning btn-sm">Edit</a>
-
+                  
                       <!-- Button trigger modal -->
                     <button type="submit" class="btn btn-danger btn-sm" name="submit" data-toggle="modal" 
                     data-target="#deleteModal{{ $item->nim }}">Delete</button>
                     
-                  </td>
+                </td>
               </tr>
               <?php $i++ ?>
               @endforeach

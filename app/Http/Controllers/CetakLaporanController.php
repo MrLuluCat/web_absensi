@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\Models\presensi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class CetakLaporanController extends Controller
 {
@@ -14,10 +18,36 @@ class CetakLaporanController extends Controller
      */
     public function index(Request $request)
     {
-        
+        $tanggal = $request->tanggal_presensi ? Carbon::parse($request->input('tanggal_presensi'))->format('Y-m-d') : Carbon::today('Asia/Jakarta')->format('Y-m-d');
+        // $tanggal = Carbon::parse('2023-04-22')->format('Y-m-d');
 
-        return view('cetakLaporan.index');
-        // ->with('data', $data)
+        $katakunci = $request->katakunci;
+        $jumlahBaris = 6;
+        if (strlen($katakunci)) {
+            $data = presensi::join('mahasiswa', 'presensi.nim', '=', 'mahasiswa.nim')
+            ->where('tanggal_presensi', $tanggal)
+                ->where(function ($query) use ($katakunci) {
+                    $query->where('presensi.nim', 'like', "%$katakunci%")
+                    ->orWhere('mahasiswa.nama', 'like', "%$katakunci%");
+                })
+                ->orWhere('status', 'like', "%$katakunci%")
+                ->paginate($jumlahBaris);
+        } else {
+            $data =
+                presensi::where('tanggal_presensi', $tanggal)
+                ->orderBy('jam_masuk', 'asc')
+                ->paginate($jumlahBaris);
+        }
+
+        return view('cetakLaporan.index')->with('data', $data);
+    }
+
+    public function cetak()
+
+    {
+        $presensi = Presensi::all();
+        $nama_file = 'laporan_presensi_' . date('Y-m-d') . '.xlsx';
+        return Excel::download(new PresensiExport($presensi), $nama_file);
     }
 
     /**

@@ -58,7 +58,8 @@ route::get('/session/register', [SessionController::class, 'register'])->middlew
 route::post('/session/create', [SessionController::class, 'create'])->middleware('isGuest');
 
 // Cetak Laporan Controller 
-Route::resource('/cetak_laporan', CetakLaporanController::class)->middleware('isLogin');
+Route::resource('/laporan', CetakLaporanController::class)->middleware('isLogin');
+Route::get('/laporan/cetak', [CetakLaporanController::class, 'cetak]'])->middleware('isLogin');
 
 // about
 Route::get('/about', function () {
