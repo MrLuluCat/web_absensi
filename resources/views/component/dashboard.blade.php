@@ -209,7 +209,7 @@
                                                 Kami dari kelompok 3 sebagai pembuat website ini, menyediakan solusi untuk
                                                 memantau Presensi Asisten dengan mudah dan tersistem.
                                             </p>
-                                            <a class="btn btn-primary btn-sm" href="{{ url('/about') }}"
+                                            <a class="btn btn-primary btn-sm mt-1" href="{{ url('/about') }}"
                                                 role="button">Pelajari Lebih Lanjut</a>
                                         </div>
                                     </div>

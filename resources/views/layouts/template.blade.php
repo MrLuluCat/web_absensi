@@ -189,7 +189,7 @@
               <div class="collapse" id="Laporan">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="#">
+                      <a href="{{ url('/cetak_laporan') }}">
                         <span class="sub-item">Cetak laporan</span>
                       </a>
                     </li>
