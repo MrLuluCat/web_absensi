@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CetakLaporanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\DashboardController;
@@ -56,6 +57,9 @@ route::get('/session/logout',[SessionController::class, 'logout']);
 route::get('/session/register', [SessionController::class, 'register'])->middleware('isGuest');
 route::post('/session/create', [SessionController::class, 'create'])->middleware('isGuest');
 
+// Cetak Laporan Controller 
+Route::resource('/laporan', CetakLaporanController::class)->middleware('isLogin');
+Route::get('/laporan/cetak', [CetakLaporanController::class, 'cetak]'])->middleware('isLogin');
 
 // about
 Route::get('/about', function () {

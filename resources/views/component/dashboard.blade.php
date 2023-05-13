@@ -202,38 +202,38 @@ dashboard
                 <div class="card-body">
                     <div class="row">
 
-                        <div class="col-md-5">
-                            <div class="card">
-                                <div class="card-body mb-3">
-                                    <h2 class="card-title mb-4">Tentang Kami</h2>
-                                    <p class="card-text">
-                                        Kami dari kelompok 3 sebagai pembuat website ini, menyediakan solusi untuk
-                                        memantau Presensi Asisten dengan mudah dan tersistem.
-                                    </p>
-                                    <a class="btn btn-primary btn-sm" href="{{ url('/about') }}" role="button">Pelajari
-                                        Lebih Lanjut</a>
+                                <div class="col-md-5">
+                                    <div class="card">
+                                        <div class="card-body mb-3">
+                                            <h2 class="card-title mb-4">Tentang Kami</h2>
+                                            <p class="card-text">
+                                                Kami dari kelompok 3 sebagai pembuat website ini, menyediakan solusi untuk
+                                                memantau Presensi Asisten dengan mudah dan tersistem.
+                                            </p>
+                                            <a class="btn btn-primary btn-sm mt-1" href="{{ url('/about') }}"
+                                                role="button">Pelajari Lebih Lanjut</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-7">
+                                    <div class="card">
+                                        <div class="card-body mb-3">
+                                            <h2 class="card-title mb-2">Kontak</h2>
+                                            <address >
+                                                <strong>LAB ICT UBL</strong><br />
+                                                Jl. Ciledug Raya No.99, RT.1/RW.2,
+                                                Petukangan Utara, Kec.<br /> Pesanggrahan,
+                                                Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12260<br />
+                                            </address>
+                                            <p>
+                                                Telepon: 123-456-7890<br />
+                                                website resmi: <a
+                                                    href="https://labict.budiluhur.ac.id/">https://labict.budiluhur.ac.id/</a>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-md-7">
-                            <div class="card">
-                                <div class="card-body mb-3">
-                                    <h2 class="card-title mb-2">Kontak</h2>
-                                    <address>
-                                        <strong>LAB ICT UBL</strong><br />
-                                        Jl. Ciledug Raya No.99, RT.1/RW.2,
-                                        Petukangan Utara, Kec.<br /> Pesanggrahan,
-                                        Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12260<br />
-                                    </address>
-                                    <p>
-                                        Telepon: 123-456-7890<br />
-                                        website resmi: <a
-                                            href="https://labict.budiluhur.ac.id/">https://labict.budiluhur.ac.id/</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endsection
+                    @endsection

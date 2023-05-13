@@ -26,16 +26,23 @@
         });
     </script>
 
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/atlantis.min.css') }}">
-    <style>
-        .display-4 {
-            margin-top: 20px;
-        }
-    </style>
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}">
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/atlantis.min.css')}}">
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
+<script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+  <style>
+    .display-4 {
+      margin-top: 20px;
+    }
+  </style>
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}">
 </head>
 
 <body>
@@ -65,22 +72,22 @@
             </div>
             <!-- End Logo Header -->
 
-            <!-- nav bar -->
-            <!-- Navbar Header -->
-            <nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
-                <div class="container-fluid">
-                    <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="dropdown">
-                                <i class="fa fa-calendar"></i>
-                                <span id="todayDate"></span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+                                       <!-- nav bar -->
+      <!-- Navbar Header -->
+      <nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
+        <div class="container-fluid">
+          <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="dropdown">
+                <i class="fa fa-calendar"> </i>
+                <span id="todayDate" class="ml-1"></span>
+              </a>
+            </li>
+          </ul>
         </div>
-        <!-- End Navbar -->
+      </nav>
+    </div>
+    <!-- End Navbar -->
 
 
         <!-- side bar -->
@@ -213,24 +220,24 @@
                     </div>
                 </div> --}}
 
-                            @if (Auth::check())
-                                <li class="nav-item">
-                                    <a data-toggle="collapse" href="#Laporan">
-                                        <i class="fas fa-list-alt"></i>
-                                        <p>Laporan</p>
-                                        <span class="caret"></span>
-                                    </a>
-                                    <div class="collapse" id="Laporan">
-                                        <ul class="nav nav-collapse">
-                                            <li>
-                                                <a href="#">
-                                                    <span class="sub-item">Cetak laporan</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            @endif
+          @if (Auth::check())
+          <li class="nav-item">
+              <a data-toggle="collapse" href="#Laporan">
+                  <i class="fas fa-list-alt"></i> 
+                  <p>Laporan</p> 
+                  <span class="caret"></span> 
+              </a>
+              <div class="collapse" id="Laporan">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="{{ url('/laporan') }}">
+                        <span class="sub-item">Cetak laporan</span>
+                      </a>
+                    </li>
+                  </ul>
+              </div>
+            </li>
+            @endif
 
                             <li class="nav-item">
                                 <a data-toggle="collapse" href="#about">

@@ -20,7 +20,6 @@ class presensiCalasController extends Controller
 
         $tanggal = $request->tanggal_presensi ? Carbon::parse($request->input('tanggal_presensi')) : Carbon::today('Asia/Jakarta')->format('Y-m-d');
         // $tanggal = Carbon::parse('2023-04-22')->format('Y-m-d');
-        // $viewDashboard = presensi::where('tanggal_presensi', $tanggal)->get();
 
         $katakunci = $request->katakunci;
         $jumlahBaris = 6;

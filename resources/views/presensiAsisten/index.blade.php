@@ -8,8 +8,8 @@
       <!-- FORM PENCARIAN -->
       @csrf
       <div class="pb-4">
-          <div class="container-xl d-flex justify-content-center m-2 pb-2 fs-4">Presensi Asisten</div>
-        <form class="d-flex" action="{{ url('mahasiswa') }}" method="get">
+          <div class="container-xl d-flex justify-content-center m-2 pb-2 fs-4">Tambah Asisten</div>
+        <form class="d-flex" action="{{ url('presensi_asisten') }}" method="get">
             <input class="form-control me-1" type="search" name="katakunci" value="{{ Request::get('katakunci') }}" 
             placeholder="Cari Nama / NIM" aria-label="Search">
             <button class="btn btn-secondary btn-md" type="submit">Search</button>
