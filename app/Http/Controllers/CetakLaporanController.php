@@ -42,13 +42,13 @@ class CetakLaporanController extends Controller
         return view('cetakLaporan.index')->with('data', $data);
     }
 
-    public function cetak()
+    // public function cetak()
 
-    {
-        $presensi = Presensi::all();
-        $nama_file = 'laporan_presensi_' . date('Y-m-d') . '.xlsx';
-        return Excel::download(new PresensiExport($presensi), $nama_file);
-    }
+    // {
+    //     $presensi = Presensi::all();
+    //     $nama_file = 'laporan_presensi_' . date('Y-m-d') . '.xlsx';
+    //     return Excel::download(new PresensiExport($presensi), $nama_file);
+    // }
 
     /**
      * Show the form for creating a new resource.
