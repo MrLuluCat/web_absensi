@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card mt-4">
-                    <div class="card-header">Tambah Presensi</div>
+                    <div class="card-header"><h1>Tambah Presensi</h1></div>
                     <div class="card-body">
                         
             <form action='{{ route('presensi_asisten.store') }}' method='post'>

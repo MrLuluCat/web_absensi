@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card mt-4">
-                    <div class="card-header">{{ __('Edit Data Mahasiswa') }}</div>
+                    <div class="card-header"><h1>{{ __('Edit Data Mahasiswa') }}</h1></div>
                     <div class="card-body">
                         
             <form action='{{ route('presensi_calas.update', [$data->tanggal_presensi, $data->nim]) }}' method='post'>

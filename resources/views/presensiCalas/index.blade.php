@@ -8,7 +8,7 @@
       <!-- FORM PENCARIAN -->
       @csrf
       <div class="pb-4">
-          <div class="container-xl d-flex justify-content-center m-2 pb-2 fs-4">Presensi Calas</div>
+          <div class="container-xl d-flex justify-content-center m-2 pb-2 fs-4"><h1>Presensi Calas</h1></div>
         <form class="d-flex" action="{{ url('presensi_calas') }}" method="get">
             <input class="form-control me-1" type="search" name="katakunci" value="{{ Request::get('katakunci') }}" 
             placeholder="Cari Nama / NIM" aria-label="Search">

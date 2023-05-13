@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card mt-4">
-                    <div class="card-header">{{ __('Edit Data Asiten/Calas') }}</div>
+                    <div class="card-header"><h1>{{ __('Edit Data Asiten/Calas') }}</h1></div>
                     <div class="card-body">
                         <form action='{{ url('mahasiswa/'.$data->nim) }}' method='post'>
                             @csrf

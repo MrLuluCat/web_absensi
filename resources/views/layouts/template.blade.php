@@ -153,11 +153,6 @@
                                         <ul class="nav nav-collapse mb-1 pb-1">
                                             <li>
                                                 <a href="{{ url('mahasiswa') }}">
-                                                    <span class="sub-item">Tambah Asisten</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ url('mahasiswa') }}">
                                                     <span class="sub-item">Daftar Asisten</span>
                                                 </a>
                                             </li>
@@ -295,7 +290,7 @@
                     </div>
 
                 </div>
-                
+
                 <footer class="page-footer font-small blue">
                     <div class="container">
                         <div class="footer-copyright text-center py-3">
