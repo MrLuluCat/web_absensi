@@ -37,8 +37,7 @@
                                                     <i class="flaticon-users"></i>
                                                 </div>
                                             </div>
-                                            <div class="col-7 col-stats"
-                                                onclick="location.href='/*arahin ke halaman presensi asisten hari ini*/'">
+                                            <div class="col-7 col-stats">
                                                 <div class="numbers">
                                                     <p class="card-category">Kehadiran <br> Calas : {{ $jumlahCalas }}</p>
                                                     <h4 class="card-title"></h4>
@@ -57,7 +56,7 @@
                                                     <i class="flaticon-users"></i>
                                                 </div>
                                             </div>
-                                            <div class="col-1 col-stats" onclick="location.href='#'">
+                                            <div class="col-1 col-stats">
                                                 <div class="numbers">
                                                     <p class="card-category">Kehadiran Asisten : {{ $jumlahAsisten }}</p>
                                                     <h4 class="card-title">
@@ -77,8 +76,7 @@
                                                     <i class="fas fa-user-tie"></i>
                                                 </div>
                                             </div>
-                                            <div class="col-6 col-stats"
-                                                onclick="location.href='dashboard.php?page=siswa#'">
+                                            <div class="col-6 col-stats">
                                                 <div class="numbers">
                                                     <p class="card-category">Total <br> Calas : {{ $totalCalas }}</p>
                                                     <h4 class="card-title">
@@ -201,7 +199,6 @@
             <div>
                 <div class="card-body">
                     <div class="row">
-
                                 <div class="col-md-5">
                                     <div class="card">
                                         <div class="card-body mb-3">

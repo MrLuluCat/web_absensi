@@ -183,38 +183,6 @@
                                 </div>
                             </li>
 
-                            {{-- <div class="sidebar-content">
-                    <div class="user">
-                        
-                        <div class="info">
-							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
-								<span>
-									<//?= $data['nama_lengkap'] ?>
-									<span class="user-level">Administrator</span>
-									<span class="caret"></span>
-								</span>
-							</a>
-							<div class="clearfix"></div>
-
-							<!-- <div class="collapse in" id="collapseExample">
-								<ul class="nav">
-
-									<li>
-										<a href="#" data-toggle="modal" data-target="#pengaturanAkun" class="collapsed">
-											<span class="link-collapse">Pengaturan Akun</span>
-										</a>
-									</li>
-									<li>
-										<a href="#" data-toggle="modal" data-target="#gantiPassword" class="collapsed">
-											<span class="link-collapse">Ganti Password</span>
-										</a>
-									</li>
-
-								</ul>
-							</div> -->
-                    </div>
-                </div> --}}
-
           @if (Auth::check())
           <li class="nav-item">
               <a data-toggle="collapse" href="#Laporan">
@@ -299,7 +267,6 @@
                     </div>
                 </footer>
             </div>
-
         </div> 
 
         <script src="{{ asset('assets/js/core/jquery.3.2.1.min.js') }}"></script>

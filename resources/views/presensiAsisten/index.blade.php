@@ -8,7 +8,7 @@
       <!-- FORM PENCARIAN -->
       @csrf
       <div class="pb-4">
-          <div class="container-xl d-flex justify-content-center m-2 pb-2 fs-4"><h1>Tambah Asisten</h1></div>
+          <div class="container-xl d-flex justify-content-center m-2 pb-2 fs-4"><h1>Presensi Asisten</h1></div>
         <form class="d-flex" action="{{ url('presensi_asisten') }}" method="get">
             <input class="form-control me-1" type="search" name="katakunci" value="{{ Request::get('katakunci') }}" 
             placeholder="Cari Nama / NIM" aria-label="Search">
@@ -152,7 +152,7 @@
                             <form class="d-inline" action="{{ route('presensi_asisten.destroy', [$item->tanggal_presensi, $item->nim]) }}" method="POST">
                               @csrf
                               @method('DELETE')
-                              <button type="submit" class="btn btn-danger">{{ $item->nim }}</button>
+                              <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                           </div>
                         </div>

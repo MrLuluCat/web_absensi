@@ -123,7 +123,7 @@
                             <form class="d-inline" action="{{ url('mahasiswa/'.$item->nim) }}" method="POST">
                               @csrf
                               @method('DELETE')
-                              <button type="submit" class="btn btn-danger d-inline">{{ $item->nim }}</button>
+                              <button type="submit" class="btn btn-danger d-inline">Delete</button>
                             </form>
                           </div>
                         </div>

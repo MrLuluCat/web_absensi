@@ -86,7 +86,7 @@
                             <form action="{{ route('presensi_calas.destroy', [$item->tanggal_presensi, $item->nim]) }}" method="POST">
                               @csrf
                               @method('DELETE')
-                              <button type="submit" class="btn btn-danger">{{ $item->nim }}</button>
+                              <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                           </div>
                       </div>

@@ -7,7 +7,7 @@
         <div class="container">
             <h1 class="display-4">Kelompok 3</h1>
             <p class="lead">
-                Kami memiliki tujuan yang sama yaitu mencapai hasil terbaik dalam pembuatan web absensi ini .
+                Kami memiliki tujuan yang sama yaitu mencapai hasil terbaik dalam pembuatan web absensi ini
             </p>
             {{-- <h class="my-4" /> --}}
         </div>
@@ -40,7 +40,6 @@
         </div>
     </div>
 </div>
-}
-            </div>
+
         
 @endsection
