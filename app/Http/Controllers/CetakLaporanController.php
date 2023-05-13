@@ -19,7 +19,6 @@ class CetakLaporanController extends Controller
     public function index(Request $request)
     {
         $tanggal = $request->tanggal_presensi ? Carbon::parse($request->input('tanggal_presensi'))->format('Y-m-d') : Carbon::today('Asia/Jakarta')->format('Y-m-d');
-        // $tanggal = Carbon::parse('2023-04-22')->format('Y-m-d');
 
         $katakunci = $request->katakunci;
         $jumlahBaris = 6;
@@ -28,7 +27,8 @@ class CetakLaporanController extends Controller
             ->where('tanggal_presensi', $tanggal)
                 ->where(function ($query) use ($katakunci) {
                     $query->where('presensi.nim', 'like', "%$katakunci%")
-                    ->orWhere('mahasiswa.nama', 'like', "%$katakunci%");
+                    ->orWhere('mahasiswa.nama', 'like', "%$katakunci%")
+                    ->orWhere('mahasiswa.jabatan', 'like', "%$katakunci%");
                 })
                 ->orWhere('status', 'like', "%$katakunci%")
                 ->paginate($jumlahBaris);

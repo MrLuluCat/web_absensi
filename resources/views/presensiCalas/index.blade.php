@@ -51,15 +51,14 @@
                             <td>{{ $item->status }}</td>
                             
                             <td>
-                              <div class="btn-group">
-                                <a href="{{ route('presensi_calas.edit', ['idPresensi' => $item->tanggal_presensi, 'idNIM' => $item->nim]) }}" class="btn btn-warning btn-sm d-inline">Edit</a>
+                              
+                                <a href="{{ route('presensi_calas.edit', ['idPresensi' => $item->tanggal_presensi, 'idNIM' => $item->nim]) }}" class="btn btn-warning btn-sm ">Edit</a>
                                 
-                                {{-- @if(session()->has('role')) --}}
                                 @if(Auth::check())
                                 <!-- Button trigger modal -->
                                 <button type="submit" class="btn btn-danger btn-sm d-inline" name="submit" data-toggle="modal" data-target="#deleteModal{{ $item->tanggal_presensi }}{{ $item->nim }}">Delete</button>
                                 @endif
-                              </div>
+                              
                               </td>
                             </tr>
                             <?php $i++ ?>

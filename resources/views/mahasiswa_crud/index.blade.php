@@ -95,7 +95,6 @@
                             <input class="form-control" type="text" aria-label="Disabled input example" value="{{ $item->jabatan }}" disabled readonly>
                           </div>
                         </div>
-                      </form>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>

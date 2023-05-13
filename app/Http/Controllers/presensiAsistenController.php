@@ -124,7 +124,7 @@ class presensiAsistenController extends Controller
             ->where('nim', $nim)
             ->first();
 
-        return view('presensiCalas.edit')->with('data', $data);
+        return view('presensiAsisten.edit')->with('data', $data);
     }
 
     /**
@@ -168,7 +168,7 @@ class presensiAsistenController extends Controller
             ->update($presensi);
 
         // @dd($presensi);
-        return redirect()->to('presensi_calas')->withSuccess('Absen keluar berhasil');
+        return redirect()->to('presensi_asisten')->withSuccess('Absen keluar berhasil');
     }
 
     /**

@@ -48,6 +48,8 @@ class mahasiswaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+        // regex:/^[a-zA-Z\s]+$ adalah validasi input nama atau teks dengan hanya memperbolehkan huruf alfabet dan spasi, 
+        // sehingga karakter lain seperti angka dan simbol tidak diizinkan.
             'nim' => 'required|numeric|unique:mahasiswa,nim',
             'nama' => 'required|regex:/^[a-zA-Z\s]+$/',
             'fakultas' => 'required|regex:/^[a-zA-Z\s]+$/',
@@ -141,7 +143,7 @@ class mahasiswaController extends Controller
         } catch (QueryException $e) {
             $errorCode = $e->errorInfo[1];
             if ($errorCode == 1451) {
-                return redirect()->back()->withErrors(['Gagal Menghapus Data. Data telah digunakan pada tabel lain.']);
+                return redirect()->back()->withErrors(['Gagal Menghapus Data, Data telah digunakan pada tabel presensi']);
             }
         }
     }

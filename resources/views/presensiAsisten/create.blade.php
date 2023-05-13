@@ -29,7 +29,7 @@
             </div>
 
             <div class="d-flex justify-content-between">
-                <a href="{{ url('presensi') }}" class="btn btn-secondary ml-3">Kembali</a>
+                <a href="{{ url('presensi_asisten') }}" class="btn btn-secondary ml-3">Kembali</a>
                 <button type="submit" class="btn btn-primary mr-3 ">Submit</button>
             </div>
         </form>

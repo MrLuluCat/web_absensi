@@ -41,7 +41,6 @@ class presensiCalasController extends Controller
                 ->paginate($jumlahBaris);
         }
 
-
         return view('presensiCalas.index')->with('data', $data);
     }
 
