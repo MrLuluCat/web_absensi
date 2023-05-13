@@ -8,7 +8,7 @@
       <!-- FORM PENCARIAN -->
       @csrf
       <div class="pb-4">
-          <div class="container-xl d-flex justify-content-center m-2 pb-2 fs-4">Tambah Presensi Calas</div>
+          <div class="container-xl d-flex justify-content-center m-2 pb-2 fs-4">Presensi Calas</div>
         <form class="d-flex" action="{{ url('presensi_calas') }}" method="get">
             <input class="form-control me-1" type="search" name="katakunci" value="{{ Request::get('katakunci') }}" 
             placeholder="Cari Nama / NIM" aria-label="Search">
@@ -18,12 +18,10 @@
 
         <!-- TOMBOL TAMBAH DATA -->
         <div class="pb-3">
-            <a href='{{ url('presensi_calas/create') }}' class="btn btn-success">+ Tambah Data</a>
+            <a href='{{ url('presensi_calas/create') }}' class="btn btn-success">+ Tambah Presensi</a>
         </div>
 
-        @if($data->isEmpty())
-            <p>Belum ada data presensi calas.</p>
-        @else
+        
             <table id="" class="table table-striped table-bordered">
                 <thead>
                     <tr>
@@ -37,9 +35,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $i = $data->firstItem() ?>
-                    @foreach ($data as $item)
-                        <tr>
+                  <?php $i = $data->firstItem() ?>
+                  @if ($data->isEmpty())
+                      <tr>
+                          <td colspan="7">Data belum ada</td>
+                      </tr>
+                  @else
+                      @foreach ($data as $item)
+                          <tr>
                             <td>{{ $i }}</td>
                             <td>{{ $item->nim }}</td>
                             <td>{{ $item->mahasiswa->nama }}</td>
@@ -48,6 +51,7 @@
                             <td>{{ $item->status }}</td>
                             
                             <td>
+                              <div class="btn-group">
                                 <a href="{{ route('presensi_calas.edit', ['idPresensi' => $item->tanggal_presensi, 'idNIM' => $item->nim]) }}" class="btn btn-warning btn-sm d-inline">Edit</a>
                                 
                                 {{-- @if(session()->has('role')) --}}
@@ -55,11 +59,14 @@
                                 <!-- Button trigger modal -->
                                 <button type="submit" class="btn btn-danger btn-sm d-inline" name="submit" data-toggle="modal" data-target="#deleteModal{{ $item->tanggal_presensi }}{{ $item->nim }}">Delete</button>
                                 @endif
-                            </td>
-                            
-                        </tr>
-                        <?php $i++ ?>
-                    @endforeach
+                              </div>
+                              </td>
+                            </tr>
+                            <?php $i++ ?>
+                        @endforeach
+                    @endif
+                </tbody>
+            </table>
 
                     <!-- Modal Delete -->
                     @foreach ($data as $item)
@@ -90,7 +97,7 @@
       </table>
              
       {{ $data->withQueryString()->links() }}
-      @endif
+     
 </div>
 
 

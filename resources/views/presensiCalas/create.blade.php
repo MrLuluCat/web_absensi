@@ -14,21 +14,19 @@
             <div class="form-group">
                 <label for="nim">NIM</label>
                 <select class="custom-select" aria-label="Default select example" value="nim" name="nim" id="nim">
-                        {{-- <select class="form-select" aria-label="Default select example" value="nim" name="nim" id="nim"> --}}
                     @foreach($categories as $category)
-                        <option value="{{ $category->nim }}">{{ $category->nama }} - {{ $category->nim }} -- {{ $category->jabatan }}</option>
+                        <option value="{{ $category->nim }}">{{ $category->nama }} - {{ $category->nim }} - {{ $category->jabatan }}</option>
                     @endforeach
-                {{-- </select> --}}
                 </select>
             </div>
             <div class="form-group">
                 <label for="jam_masuk">Jam Masuk</label>
                 <input type="time" name="jam_masuk" id="jam_masuk" value="{{ \Carbon\Carbon::now('Asia/Jakarta')->format('H:i') }}" class="form-control">
             </div>
-            <div class="d-flex justify-content-between">
-                <a href="{{ url('presensi_calas') }}" class="btn btn-secondary">Kembali</a>
-                <button type="submit" class="btn btn-sm btn-primary">Submit</button>
-            </div></form>
+            <div class="d-flex justify-content-between btn-group">
+                <a href="{{ url('presensi_calas') }}" class="btn btn-secondary ml-2">Kembali</a>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+            </div></div></form>
     </div>
     </div>
     </div>

@@ -59,10 +59,7 @@
 								Login
 							</button>
 						</div>
-						<div class="text-center">
-							<p>_______ <a href="{{'/session/register'}}">_____</a></p>
-							
-						</div>
+						
 					</div>
 				</form>
 

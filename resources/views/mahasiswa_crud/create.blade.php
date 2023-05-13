@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card mt-4">
-                    <div class="card-header">{Tambah Data Mahasiswa</div>
+                    <div class="card-header">Tambah Data Asisten/Calas</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('mahasiswa.store') }}">
                             @csrf
@@ -103,12 +103,12 @@
                             @enderror
                         </div>        
                     </div>
-                    <div class="form-group row">
-                        <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-primary">
+                    <div class="form-group ">
+                        <div class="d-flex justify-content-between btn-group">
+                            <button type="submit" class="btn btn-primary ml-5">
                                 {{ __('Tambah') }}
                             </button>
-                            <a href="{{ route('mahasiswa.index') }}" class="btn btn-secondary">{{ __('Batal') }}</a>
+                            <a href="{{ route('mahasiswa.index') }}" class="btn btn-secondary mr-5">{{ __('Batal') }}</a>
                         </div>
                     </div>
 

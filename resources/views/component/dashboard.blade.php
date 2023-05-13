@@ -1,23 +1,24 @@
+dashboard
 @extends('layouts.template')
 <!-- START DATA -->
 @section('kontenDashboard')
     <!-- akhir side bar -->
 
     <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4">Selamat Datang di Website Presensi LAB ICT Universitas Budi Luhur</h1>
-                <p class="lead">
-                    Website ini membantu anda memantau presensi Asisten LAB ICT dengan mudah.
-                </p>
-                <hr class="my-4" />
-                <p>
+        <div class="container">
+            <h1 class="display-4">Selamat Datang di Website Presensi LAB ICT Universitas Budi Luhur</h1>
+            <p class="lead">
+                Website ini membantu anda memantau presensi Asisten LAB ICT dengan mudah.
+            </p>
+            <hr class="my-4" />
+            <p>
                 Kami menyediakan solusi yang mudah dan efisien untuk memantau presensi Asisten.
-                </p>
-            </div>
+            </p>
         </div>
+    </div>
 
     <div class="container">
-        
+
         <div class="container">
             <div>
                 <div class="card ">
@@ -39,7 +40,7 @@
                                             <div class="col-7 col-stats"
                                                 onclick="location.href='/*arahin ke halaman presensi asisten hari ini*/'">
                                                 <div class="numbers">
-                                                    <p class="card-category">Kehadiran <br> Calas : {{ $jumlahCalas }}</p>
+                                                    <p class="card-category">Kehadiran Calas : {{ $jumlahCalas }}</p>
                                                     <h4 class="card-title"></h4>
                                                 </div>
                                             </div>
@@ -99,7 +100,7 @@
                                             </div>
                                             <div class="col-6 col-stats" onclick="location.href='#'">
                                                 <div class="numbers">
-                                                    <p class="card-category">Total Asisten :<br> {{ $totalAsisten }}</p>
+                                                    <p class="card-category">Total Asisten : {{ $totalAsisten }}</p>
                                                     <h4 class="card-title">
                                                     </h4>
                                                 </div>
@@ -196,43 +197,43 @@
         </div>
 
 
-        <div class="container">
+        
             <div>
-                        <div class="card-body">
-                            <div class="row">
+                <div class="card-body">
+                    <div class="row">
 
-                                <div class="col-md-5">
-                                    <div class="card">
-                                        <div class="card-body mb-3">
-                                            <h2 class="card-title mb-4">Tentang Kami</h2>
-                                            <p class="card-text">
-                                                Kami dari kelompok 3 sebagai pembuat website ini, menyediakan solusi untuk
-                                                memantau Presensi Asisten dengan mudah dan tersistem.
-                                            </p>
-                                            <a class="btn btn-primary btn-sm" href="{{ url('/about') }}"
-                                                role="button">Pelajari Lebih Lanjut</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-7">
-                                    <div class="card">
-                                        <div class="card-body mb-3">
-                                            <h2 class="card-title mb-2">Kontak</h2>
-                                            <address >
-                                                <strong>LAB ICT UBL</strong><br />
-                                                Jl. Ciledug Raya No.99, RT.1/RW.2,
-                                                Petukangan Utara, Kec.<br /> Pesanggrahan,
-                                                Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12260<br />
-                                            </address>
-                                            <p>
-                                                Telepon: 123-456-7890<br />
-                                                website resmi: <a
-                                                    href="https://labict.budiluhur.ac.id/">https://labict.budiluhur.ac.id/</a>
-                                            </p>
-                                        </div>
-                                    </div>
+                        <div class="col-md-5">
+                            <div class="card">
+                                <div class="card-body mb-3">
+                                    <h2 class="card-title mb-4">Tentang Kami</h2>
+                                    <p class="card-text">
+                                        Kami dari kelompok 3 sebagai pembuat website ini, menyediakan solusi untuk
+                                        memantau Presensi Asisten dengan mudah dan tersistem.
+                                    </p>
+                                    <a class="btn btn-primary btn-sm" href="{{ url('/about') }}" role="button">Pelajari
+                                        Lebih Lanjut</a>
                                 </div>
                             </div>
                         </div>
-                    @endsection
+
+                        <div class="col-md-7">
+                            <div class="card">
+                                <div class="card-body mb-3">
+                                    <h2 class="card-title mb-2">Kontak</h2>
+                                    <address>
+                                        <strong>LAB ICT UBL</strong><br />
+                                        Jl. Ciledug Raya No.99, RT.1/RW.2,
+                                        Petukangan Utara, Kec.<br /> Pesanggrahan,
+                                        Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12260<br />
+                                    </address>
+                                    <p>
+                                        Telepon: 123-456-7890<br />
+                                        website resmi: <a
+                                            href="https://labict.budiluhur.ac.id/">https://labict.budiluhur.ac.id/</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endsection
