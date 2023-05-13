@@ -94,10 +94,10 @@
         <div class="sidebar sidebar-style-2">
 
             <div class="sidebar-wrapper scrollbar scrollbar-inner">
-
+             
                 <div class="sidebar-content">
+                    @if(Auth::check())
                     <div class="user">
-                        @if (Auth::check())
                             <div class="info">
                                 <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                                     <span>
@@ -113,9 +113,9 @@
                                     <ul class="nav">
 
                                         <li>
-                                            <a href="{{'/session/register'}}" "
+                                            <a href="{{'/session/register'}}"
                                                 class="collapsed">
-                                                <span class="link-collapse">register</span>
+                                                <span class="link-collapse">Register New User</span>
                                                 {{-- <div class="text-center">
                                                   <span class="link-collapse">_______ <a href="{{'/session/register'}}">_____</a></span>
                                                   
@@ -124,11 +124,11 @@
                                         </li>
                                     </ul>
                                 </div>
-                                </div>
-                                </div>
+                            </div>
+                        </div>
                         @endif
 
-                        <ul class="nav nav-primary">
+                        <ul class="nav nav-primary mb-1 pb-1">
                             <li class="nav-item active">
                                 <a href="{{ url('dashboard') }}" class="collapsed">
                                     <i class="fas fa-home"></i>
@@ -150,7 +150,7 @@
                                         <span class="caret"></span>
                                     </a>
                                     <div class="collapse" id="asisten">
-                                        <ul class="nav nav-collapse">
+                                        <ul class="nav nav-collapse mb-1 pb-1">
                                             <li>
                                                 <a href="{{ url('mahasiswa') }}">
                                                     <span class="sub-item">Tambah Asisten</span>
@@ -173,7 +173,7 @@
                                 </a>
 
                                 <div class="collapse" id="presensi">
-                                    <ul class="nav nav-collapse">
+                                    <ul class="nav nav-collapse mb-1 pb-1">
                                         <li>
                                             <a href="{{ url('presensi_calas') }}">
                                                 <span class="sub-item">Calas</span>
@@ -228,7 +228,7 @@
                   <span class="caret"></span> 
               </a>
               <div class="collapse" id="Laporan">
-                  <ul class="nav nav-collapse">
+                  <ul class="nav nav-collapse mb-1 pb-1">
                     <li>
                       <a href="{{ url('/laporan') }}">
                         <span class="sub-item">Cetak laporan</span>
@@ -246,7 +246,7 @@
                                     <span class="caret"></span>
                                 </a>
                                 <div class="collapse" id="about">
-                                    <ul class="nav nav-collapse">
+                                    <ul class="nav nav-collapse mb-1 pb-1">
                                         <li>
                                             <a href="/about">
                                                 <span class="sub-item">Tentang Kami </span>
@@ -295,31 +295,17 @@
                     </div>
 
                 </div>
-
+                
+                <footer class="page-footer font-small blue">
+                    <div class="container">
+                        <div class="footer-copyright text-center py-3">
+                        © 2023 by Kelompok 3
+                        </div>
+                    </div>
+                </footer>
             </div>
 
-        </div>
-
-        <!-- Footer -->
-        <footer class="page-footer font-small blue">
-            <div class="container">
-
-                <!-- Copyright -->
-                <div class="footer-copyright text-center py-3">© 2023 by Kelompok 3
-
-                </div>
-                <!-- Copyright -->
-            </div>
-        </footer>
-        <!-- Footer -->
-
-        {{-- <footer class="container-fluid bg-light py-3">
-  <div class="row">
-    <div class="col-md-12">
-      <p class="text-center">© 2023 by Kelompok 3</p>
-    </div>
-  </div>
-</footer> --}}
+        </div> 
 
         <script src="{{ asset('assets/js/core/jquery.3.2.1.min.js') }}"></script>
         <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>

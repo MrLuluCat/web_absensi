@@ -1,4 +1,3 @@
-dashboard
 @extends('layouts.template')
 <!-- START DATA -->
 @section('kontenDashboard')
@@ -21,6 +20,7 @@ dashboard
 
         <div class="container">
             <div>
+                @if (Auth::check())
                 <div class="card ">
                     <div class="card-header">
                         <h4 class="card-title">Data</h4>
@@ -40,7 +40,7 @@ dashboard
                                             <div class="col-7 col-stats"
                                                 onclick="location.href='/*arahin ke halaman presensi asisten hari ini*/'">
                                                 <div class="numbers">
-                                                    <p class="card-category">Kehadiran Calas : {{ $jumlahCalas }}</p>
+                                                    <p class="card-category">Kehadiran <br> Calas : {{ $jumlahCalas }}</p>
                                                     <h4 class="card-title"></h4>
                                                 </div>
                                             </div>
@@ -80,7 +80,7 @@ dashboard
                                             <div class="col-6 col-stats"
                                                 onclick="location.href='dashboard.php?page=siswa#'">
                                                 <div class="numbers">
-                                                    <p class="card-category">Total Calas :<br>{{ $totalCalas }}</p>
+                                                    <p class="card-category">Total <br> Calas : {{ $totalCalas }}</p>
                                                     <h4 class="card-title">
                                                     </h4>
                                                 </div>
@@ -100,7 +100,7 @@ dashboard
                                             </div>
                                             <div class="col-6 col-stats" onclick="location.href='#'">
                                                 <div class="numbers">
-                                                    <p class="card-category">Total Asisten : {{ $totalAsisten }}</p>
+                                                    <p class="card-category">Total <br> Asisten : {{ $totalAsisten }}</p>
                                                     <h4 class="card-title">
                                                     </h4>
                                                 </div>
@@ -110,8 +110,8 @@ dashboard
                                 </div>
                             </div>
                         </div>
-                        <!-- end -->
                     </div>
+                    @endif
 
 
                     <!-- modal ganti password -->
@@ -236,4 +236,4 @@ dashboard
                                 </div>
                             </div>
                         </div>
-                    @endsection
+@endsection

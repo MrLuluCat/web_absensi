@@ -1,4 +1,3 @@
-mahasiswa index
 @extends('layouts.template')
 <!-- START DATA -->
 @section('konten')
