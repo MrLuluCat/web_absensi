@@ -54,8 +54,8 @@ route::get('/session',[SessionController::class, 'index'])->middleware('isGuest'
 route::post('/session/login',[SessionController::class, 'login']);
 route::get('/session/logout',[SessionController::class, 'logout']);
 // sessionRegisterUsers
-route::get('/session/register', [SessionController::class, 'register'])->middleware('isLogin');
-route::post('/session/create', [SessionController::class, 'create'])->middleware('isGuest');
+route::get('/session/register', [SessionController::class, 'register']);
+route::post('/session/create', [SessionController::class, 'create']);
 
 // Cetak Laporan Controller 
 Route::resource('/laporan', CetakLaporanController::class)->middleware('isLogin');

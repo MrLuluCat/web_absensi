@@ -105,10 +105,10 @@
                     </div>
                     <div class="form-group ">
                         <div class="d-flex justify-content-between btn-group">
+                            <a href="{{ route('mahasiswa.index') }}" class="btn btn-secondary mr-5">{{ __('Batal') }}</a>
                             <button type="submit" class="btn btn-primary ml-5">
                                 {{ __('Tambah') }}
                             </button>
-                            <a href="{{ route('mahasiswa.index') }}" class="btn btn-secondary mr-5">{{ __('Batal') }}</a>
                         </div>
                     </div>
 
