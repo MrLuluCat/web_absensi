@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\CetakLaporanController;
+use App\Http\Middleware\isGuest;
+use App\Http\Middleware\isLogin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\DashboardController;
@@ -35,7 +36,7 @@ Route::get('/', function () {
 Route::resource('dashboard', DashboardController::class);
 
 // mahasiswaController
-Route::resource('mahasiswa', mahasiswaController::class)->middleware('isLogin');
+Route::resource('mahasiswa', mahasiswaController::class)->middleware(isLogin::class);
 
 // presensiAsistenController
 Route::resource('presensi_asisten', presensiAsistenController::class);
@@ -50,16 +51,16 @@ Route::put('/presensi_calas/{idPresensi}/{idNIM}', [presensiCalasController::cla
 Route::delete('/presensi_calas/{idPresensi}/{idNIM}', [presensiCalasController::class, 'destroy'])->name('presensi_calas.destroy');
 
 // Session
-route::get('/session',[SessionController::class, 'index'])->middleware('isGuest');
-route::post('/session/login',[SessionController::class, 'login']);
-route::get('/session/logout',[SessionController::class, 'logout']);
+route::get('/session', [SessionController::class, 'index'])->middleware(isGuest::class);
+route::post('/session/login', [SessionController::class, 'login']);
+route::get('/session/logout', [SessionController::class, 'logout']);
 // sessionRegisterUsers
 route::get('/session/register', [SessionController::class, 'register']);
 route::post('/session/create', [SessionController::class, 'create']);
 
 // Cetak Laporan Controller 
-Route::resource('/laporan', CetakLaporanController::class)->middleware('isLogin');
-Route::get('/laporan/cetak', [CetakLaporanController::class, 'cetak]'])->middleware('isLogin');
+// Route::resource('/laporan', CetakLaporanController::class)->middleware('isLogin');
+// Route::get('/laporan/cetak', [CetakLaporanController::class, 'cetak]'])->middleware('isLogin');
 
 // about
 Route::get('/about', function () {
